@@ -76,6 +76,28 @@
         </li>
     </ul>
 
+    <h4>Vragen of benieuwd naar de mogelijkheden?</h4>
+    <p>Vul hieronder je contactgevens in en we nemen zo snel mogelijk contact met je op.</p>
+
+    <form method="POST" action="/cases/{{ case.slug }}">
+        <label for="voornaam">Voornaam:</label><br>
+        <input type="text" name="voornaam" id="voornaam" required><br><br>
+
+        <label for="achternaam">Achternaam:</label><br>
+        <input type="text" name="achternaam" id="achternaam" required><br><br>
+
+        <label for="email">E-mailadres:</label><br>
+        <input type="email" name="email" id="email" required><br><br>
+
+        <label for="bericht">Bericht:</label><br>
+        <textarea name="bericht" id="bericht" required></textarea><br><br>
+
+        {% if submitted %}
+        <button>Gelukt!! Gegevens zijn verzonden</button>
+        {% else %}
+        <button type="submit">Gegevens verzenden</button>
+        {% endif %}
+    </form>
 
     <a href="/cases">Vorige</a>
 
