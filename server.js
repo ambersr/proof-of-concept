@@ -20,7 +20,7 @@ const casesEndpoint = `${directusApiBaseUrl}/wp/v2/cases`;
 const mediaEndpoint = `${directusApiBaseUrl}/wp/v2/media/4374`;
 const usersEndpoint = `${directusApiBaseUrl}/wp/v2/users`;
 
-const embedFilter = `?_embed&acf_format=standard`;
+const embedFilter = `_embed=true&acf_format=standard`;
 
 const perPage = 8;
 
@@ -42,7 +42,6 @@ app.get("/cases", async (req, res) => {
   const mediaResponse = await fetch(`${mediaEndpoint}`);
   const mediaResponseJSON = await mediaResponse.json();
 
-  res.render("cases.liquid");
   const totalPages = casesResponse.headers.get("X-WP-TotalPages");
 
   console.log(`${totalPages}`);
@@ -73,6 +72,23 @@ app.get("/cases/page/:pageNumber", async (req, res) => {
 
 // Cases detail
 app.get("/cases/:slug", async function (req, res) {
+    
+  const slug = req.params.slug;
+const submitted = req.query.submitted === 'true';
+
+  const casesdetailResponse = await fetch(`${casesEndpoint}?slug=${slug}&${embedFilter}`);
+  const casesdetailResponseJSON = await casesdetailResponse.json();
+
+  const usersResponse = await fetch(`${usersEndpoint}`);
+  const usersResponseJSON = await usersResponse.json();
+
+  res.render("cases-detail.liquid", {
+      cases: casesdetailResponseJSON,
+      users: usersResponseJSON,
+      submitted
+    });
+});
+
 
   res.render("cases-detail.liquid")
 });
