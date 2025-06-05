@@ -20,6 +20,30 @@
 
 </section>
 
+<div class="pagination">
+    {% if totalPages > 1 %}
+
+        {% if currentPage > 1 %}
+            <a href="{% if currentPage == 2 %}/cases{% else %}/cases/page/{{ currentPage | minus: 1 }}{% endif %}">← Vorige</a>
+        {% endif %}
+
+        {% for page in (1..totalPages) %}
+
+            {% if page == currentPage %}
+            <span><strong>{{ page }}</strong></span>
+            {% else %}
+            <a href="{% if page == 1 %}/cases{% else %}/cases/page/{{ page }}{% endif %}">{{ page }}</a>
+            {% endif %}
+
+        {% endfor %}
+
+        {% if currentPage < totalPages %}
+            <a href="/cases/page/{{ currentPage | plus: 1 }}">Volgende →</a>
+        {% endif %}
+
+    {% endif %}
+</div>
+
 <section class="mogelijkheden">
     <h2>Wat kunnen we voor jou betekenen?</h2>
     <a href="/">Bekijk de mogelijkheden</a>

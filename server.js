@@ -54,6 +54,21 @@ app.get("/cases", async (req, res) => {
     totalPages,
   });
 });
+
+// Paginatie
+app.get("/cases/page/:pageNumber", async (req, res) => {
+  const page = req.params.pageNumber;
+
+  const casesResponse = await fetch(`${casesEndpoint}?per_page=${perPage}&page=${page}&_fields=title,slug,yoast_head_json.og_description,yoast_head_json.og_image`);
+  const casesResponseJSON = await casesResponse.json();
+
+  const totalPages = casesResponse.headers.get("X-WP-TotalPages");
+
+  res.render("cases.liquid", {
+    cases: casesResponseJSON,
+    currentPage: page,
+    totalPages,
+  });
 });
 
 // Cases detail
