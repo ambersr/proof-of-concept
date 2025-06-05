@@ -41,6 +41,25 @@ app.get("/", async function (req, res) {
   res.render("index.liquid");
 });
 
+// Functie fetch omzetten naar JSON
+async function fetchJson(url) {
+  const response = await fetch(url);
+  const responseJSON = await response.json();
+  return responseJSON
+}
+
+// test
+app.get("/test", async function (req, res) {
+
+     const casesResponse = await fetch(`${casesEndpoint}&_fields=title,slug,yoast_head_json.og_description,yoast_head_json.og_image`);
+     const casesResponseJSON = await casesResponse.json();
+
+  res.render("test.liquid", {
+    cases: casesResponseJSON
+  });
+});
+
+
 // Cases
 app.get("/cases", async (req, res) => {
   const page = 1;
