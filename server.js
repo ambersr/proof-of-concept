@@ -1,20 +1,19 @@
 // Import
 import express from "express";
 import { Liquid } from "liquidjs";
-// import path from 'path';
-// import fs from 'fs';
-// import { fileURLToPath } from 'url';
-// import { dirname } from 'path';
-// import fetch from "node-fetch";
+import path from 'path';
+import fs from 'fs';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = dirname(__filename);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 // Express
 const app = express();
 app.use(express.static("public"));
-// app.use(express.urlencoded({ extended: true }));
-// app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 // Liquid
 const engine = new Liquid();
@@ -51,34 +50,13 @@ async function fetchJson(url) {
 
 // test
 app.get("/test", async function (req, res) {
-  try {
-    const url = new URL(`${casesEndpoint}`);
-    url.searchParams.set('_fields', 'title,slug,yoast_head_json.og_description,yoast_head_json.og_image');
 
-    console.log("📡 Fetching URL:", url.href);
+     const casesResponseJSON = await fetchJson(`${casesEndpoint}`);
 
-    const response = await fetch(url.href);
-
-    if (!response.ok) {
-      const text = await response.text();
-      console.error("❌ Fout bij ophalen API:", response.status, text);
-      return res.status(500).send("API-fout");
-    }
-
-    const casesResponseJSON = await response.json();
-
-    console.log("✅ API data ontvangen:", casesResponseJSON.length);
-
-    res.render("test.liquid", {
-      cases: casesResponseJSON
-    });
-  } catch (err) {
-    console.error("💥 Interne fout in /test:", err);
-    res.status(500).send("Server error: " + err.message);
-  }
+  res.render("test.liquid", {
+    cases: casesResponseJSON,
+  });
 });
-
-
 // Cases
 app.get("/cases", async (req, res) => {
   const page = 1;
