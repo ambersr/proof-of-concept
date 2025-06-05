@@ -1,20 +1,20 @@
 // Import
 import express from "express";
 import { Liquid } from "liquidjs";
-import path from 'path';
-import fs from 'fs';
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
-import fetch from "node-fetch";
+// import path from 'path';
+// import fs from 'fs';
+// import { fileURLToPath } from 'url';
+// import { dirname } from 'path';
+// import fetch from "node-fetch";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = dirname(__filename);
 
 // Express
 const app = express();
 app.use(express.static("public"));
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+// app.use(express.urlencoded({ extended: true }));
+// app.use(express.json());
 
 // Liquid
 const engine = new Liquid();
