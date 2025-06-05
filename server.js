@@ -51,12 +51,31 @@ async function fetchJson(url) {
 
 // test
 app.get("/test", async function (req, res) {
+  try {
+    const url = new URL(`${casesEndpoint}`);
+    url.searchParams.set('_fields', 'title,slug,yoast_head_json.og_description,yoast_head_json.og_image');
 
-const casesResponseJSON = await fetchJson(`${casesEndpoint}?_fields=title,slug,yoast_head_json.og_description,yoast_head_json.og_image`);
+    console.log("📡 Fetching URL:", url.href);
 
-  res.render("test.liquid", {
-    cases: casesResponseJSON
-  });
+    const response = await fetch(url.href);
+
+    if (!response.ok) {
+      const text = await response.text();
+      console.error("❌ Fout bij ophalen API:", response.status, text);
+      return res.status(500).send("API-fout");
+    }
+
+    const casesResponseJSON = await response.json();
+
+    console.log("✅ API data ontvangen:", casesResponseJSON.length);
+
+    res.render("test.liquid", {
+      cases: casesResponseJSON
+    });
+  } catch (err) {
+    console.error("💥 Interne fout in /test:", err);
+    res.status(500).send("Server error: " + err.message);
+  }
 });
 
 
