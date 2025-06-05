@@ -1,9 +1,0 @@
-{% render "partials/head.liquid" %}
-
-{% if cases %}
-{% for case in cases %}
-{{ case.title.rendered }}
-{% endfor %}
-{% else %}
-<p>Geen cases gevonden.</p>
-{% endif %}
