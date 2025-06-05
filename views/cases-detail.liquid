@@ -1,1 +1,89 @@
 {% render "partials/head.liquid" %}
+
+{% for case in cases %}
+
+<div>
+    <div>
+        <ul class="breadcrumbs">
+            <li><a href="/">Home</a></li>
+            <li><a href="/cases">Cases</a></li>
+            <li><a href="{{ case.slug }}">{{ case.title.rendered }}</a></li>
+        </ul>
+
+        <img src="{{ case.yoast_head_json.og_image[0].url }}" alt="" width="400" height="400">
+    </div>
+
+    <section>
+        <h1>{{ case.title.rendered | truncatewords: 8 }}</h1>
+
+        <ul class="labels">
+            <li>
+                <p>Leestijd: {{ case.yoast_head_json.twitter_misc["Geschatte leestijd"] }}</p>
+            </li>
+            <li>
+                <p>{{ case.date | date: "%-d %B %Y" }}</p>
+            </li>
+            <li>
+                {% assign category = case._embedded["wp:term"][0][0] %}
+                {% if category %}
+                <a href="{{ category.link }}">{{ category.name }}</a>
+                {% endif %}
+            </li>
+        </ul>
+        {% comment %} <ul>
+            {% for user in users %}
+            <li>
+                <img src="{{ user.avatar_urls.96 }}" alt="" width="400" height="400">
+                <p>Naam: {{ user.name }}</p>
+                <p>Rol: {{ user.acf.user_data.role }}</p>
+            </li>
+            {% endfor %}
+        </ul> {% endcomment %}
+    </section>
+</div>
+
+<section class="case-detail-content">
+    <p>{{ case.content.rendered }}</p>
+
+    {% if case.acf.case_projectleider.user_avatar %}
+    <div class="projectleider">
+        <p>Meer weten over dit project? Neem contact op met de projectleider:</p>
+        {{ case.acf.case_projectleider.user_avatar | raw }}
+        <div class="info">
+            <p>{{ case.acf.case_projectleider.display_name }}</p>
+            <a href="mailto:{{ case.acf.case_projectleider.user_email }}">{{ case.acf.case_projectleider.user_email
+                }}</a>
+        </div>
+    </div>
+    {% endif %}
+
+    <h3>Deel dit blogbericht via</h3>
+    <ul>
+        <li>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fparse.com" target="_blank">Facebook</a>
+        </li>
+        <li>
+            <a class="twitter-share-button" href="https://twitter.com/intent/tweet">Twitter</a>
+        </li>
+        <li>
+            <a href="whatsapp://send?text=GFG Example for whatsapp sharing" data-action="share/whatsapp/share"
+                target="_blank"> Whatsapp
+            </a>
+
+        </li>
+        <li>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fparse.com" target="_blank">LinkedIn</a>
+        </li>
+    </ul>
+
+
+    <a href="/cases">Vorige</a>
+
+</section>
+
+<section class="mogelijkheden">
+    <h2>Wat kunnen we voor jou betekenen?</h2>
+    <a href="/">Bekijk de mogelijkheden</a>
+</section>
+
+{% endfor %}
