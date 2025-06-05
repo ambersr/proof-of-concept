@@ -52,7 +52,7 @@ async function fetchJson(url) {
 // test
 app.get("/test", async function (req, res) {
 
-      const casesResponseJSON = await fetchJson(`${casesEndpoint}&_fields=title,slug,yoast_head_json.og_description,yoast_head_json.og_image`);
+const casesResponseJSON = await fetchJson(`${casesEndpoint}?_fields=title,slug,yoast_head_json.og_description,yoast_head_json.og_image`);
 
   res.render("test.liquid", {
     cases: casesResponseJSON
