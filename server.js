@@ -51,7 +51,7 @@ async function fetchJson(url) {
 // test
 app.get("/test", async function (req, res) {
 
-     const casesResponseJSON = await fetchJson(`${casesEndpoint}`);
+     const casesResponseJSON = await fetchJson(`"https://labelvier.nl/wp-json"`);
 
   res.render("test.liquid", {
     cases: casesResponseJSON,
