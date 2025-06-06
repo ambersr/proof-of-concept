@@ -71,20 +71,18 @@ app.get("/cases/page/:pageNumber", async (req, res) => {
 });
 
 // Cases detail
-app.get("/cases/:slug", async function (req, res) {
-    
+app.get("/cases/:slug", async (req, res) => {
   const slug = req.params.slug;
 
-  const casesdetailResponse = await fetch(`${casesEndpoint}?slug=${slug}&${embedFilter}`);
-  const casesdetailResponseJSON = await casesdetailResponse.json();
+  // Cases detail ophalen
+  const casesdetailResponseJSON = await fetchJson(`${casesEndpoint}?slug=${slug}&${embedFilter}`);
 
-  const usersResponse = await fetch(`${usersEndpoint}`);
-  const usersResponseJSON = await usersResponse.json();
+  // Users ophalen
+  const usersResponseJSON = await fetchJson(`${usersEndpoint}?_fields=id,name,acf.user_data.profile_image`);
 
   res.render("cases-detail.liquid", {
       cases: casesdetailResponseJSON,
-      users: usersResponseJSON,
-      submitted
+      users: usersResponseJSON
     });
 });
 
