@@ -48,7 +48,23 @@ app.get("/cases/page/:pageNumber", async (req, res) => {
   // Totaal aantal pagina’s uit headers
   const totalPages = casesResponse.headers.get("X-WP-TotalPages");
 
+  // cases met media data gekoppeld
+  const casesWithMedia = [];
+
+  for (const singleCase of casesResponseJSON) {
+    let logo_white_url = null;
+
+    if (singleCase.acf?.logo_white) {
+      const mediaResponseJSON = await fetchJson(`${mediaEndpoint}${singleCase.acf.logo_white}`);
+      logo_white_url = mediaResponseJSON?.source_url || null;
+    }
+
+    casesWithMedia.push({ ...singleCase, logo_white_url });
+  }
+
+  // Pagina renderen
   res.render("cases.liquid", {
+    cases: casesWithMedia,
     currentPage: page,
     totalPages,
   });

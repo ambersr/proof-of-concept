@@ -1,22 +1,9 @@
 {% render "partials/head.liquid" %}
 
 <section class="cases-section">
-    <h1>Cases</h1>
+    
+    <h1>Projecten waar we trots op zijn!</h1>
 
-    <ul class="cases">
-        {% for case in cases %}
-        <li class="case">
-            <a href="/cases/{{ case.slug }}">
-                <img src="{{ case.yoast_head_json.og_image[0].url }}" alt="" width="400" height="400">
-                <section class="case-info">
-                    <h2>{{ case.title.rendered | truncatewords: 8 }}</h2>
-                    <p>{{ case.yoast_head_json.og_description | truncatewords: 20 }}</p>
-                    <span>Lees verder<img src="/assets/arrow-right.svg" alt="" width="13" height="13"></span>
-                </section>
-            </a>
-        </li>
-        {% endfor %}
-    </ul>
 
 </section>
 
@@ -24,15 +11,15 @@
     {% if totalPages > 1 %}
 
         {% if currentPage > 1 %}
-            <a href="{% if currentPage == 2 %}/cases{% else %}/cases/page/{{ currentPage | minus: 1 }}{% endif %}">← Vorige</a>
+            <a href="/cases/page/{{ currentPage | minus: 1 }}">← Vorige</a>
         {% endif %}
 
         {% for page in (1..totalPages) %}
 
             {% if page == currentPage %}
-            <span><strong>{{ page }}</strong></span>
+                <span><strong>{{ page }}</strong></span>
             {% else %}
-            <a href="{% if page == 1 %}/cases{% else %}/cases/page/{{ page }}{% endif %}">{{ page }}</a>
+                <a href="/cases/page/{{ page }}">{{ page }}</a>
             {% endif %}
 
         {% endfor %}
