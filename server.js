@@ -28,39 +28,27 @@ async function fetchJson(url) {
   return responseJSON
 }
 
-// Cases
-app.get("/cases", async (req, res) => {
-  const page = 1;
+// --------------------------- GET routes --------------------------------
 
-  const casesResponse = await fetch(`${casesEndpoint}?per_page=${perPage}&page=${page}&_fields=title,slug,yoast_head_json.og_description,yoast_head_json.og_image`);
-  const casesResponseJSON = await casesResponse.json();
+// Homepagina
+app.get("/", async function (req, res) {
 
-  const mediaResponse = await fetch(`${mediaEndpoint}`);
-  const mediaResponseJSON = await mediaResponse.json();
-
-  const totalPages = casesResponse.headers.get("X-WP-TotalPages");
-
-  console.log(`${totalPages}`);
-
-  res.render("cases.liquid", {
-    cases: casesResponseJSON,
-    media: mediaResponseJSON,
-    currentPage: page,
-    totalPages,
-  });
+  res.render("index.liquid");
 });
 
-// Paginatie
+// Cases overzicht (met paginatie)
 app.get("/cases/page/:pageNumber", async (req, res) => {
   const page = req.params.pageNumber;
+  const perPage = 8;
 
-  const casesResponse = await fetch(`${casesEndpoint}?per_page=${perPage}&page=${page}&_fields=title,slug,yoast_head_json.og_description,yoast_head_json.og_image`);
+  // Cases ophalen
+  const casesResponse = await fetch(`${casesEndpoint}?per_page=${perPage}&page=${page}&_fields=title,slug,yoast_head_json.og_description,yoast_head_json.og_image,acf.logo_white`);
   const casesResponseJSON = await casesResponse.json();
 
+  // Totaal aantal pagina’s uit headers
   const totalPages = casesResponse.headers.get("X-WP-TotalPages");
 
   res.render("cases.liquid", {
-    cases: casesResponseJSON,
     currentPage: page,
     totalPages,
   });
