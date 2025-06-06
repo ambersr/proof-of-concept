@@ -1,19 +1,10 @@
 // Import
 import express from "express";
 import { Liquid } from "liquidjs";
-import path from 'path';
-import fs from 'fs';
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
 
 // Express
 const app = express();
 app.use(express.static("public"));
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
 
 // Liquid
 const engine = new Liquid();
@@ -90,7 +81,6 @@ app.get("/cases/page/:pageNumber", async (req, res) => {
 app.get("/cases/:slug", async function (req, res) {
     
   const slug = req.params.slug;
-const submitted = req.query.submitted === 'true';
 
   const casesdetailResponse = await fetch(`${casesEndpoint}?slug=${slug}&${embedFilter}`);
   const casesdetailResponseJSON = await casesdetailResponse.json();
@@ -103,37 +93,6 @@ const submitted = req.query.submitted === 'true';
       users: usersResponseJSON,
       submitted
     });
-});
-
-// --------------------------- POST routes -----------------------------------
-
-app.post('/cases/:slug', (req, res) => {
-  const { voornaam, achternaam, email, bericht } = req.body;
-
-  const newMessage = {
-    voornaam,
-    achternaam,
-    email,
-    bericht
-  };
-
-  const filePath = path.join(__dirname, 'messages.json');
-
-  let messages = [];
-
-  if (fs.existsSync(filePath)) {
-    const fileData = fs.readFileSync(filePath, 'utf-8');
-    try {
-      messages = JSON.parse(fileData);
-    } catch (err) {
-      console.error('Fout bij JSON parse:', err);
-    }
-  }
-
-  messages.push(newMessage);
-  fs.writeFileSync(filePath, JSON.stringify(messages, null, 2), 'utf-8');
-
-  res.redirect(303, `/cases/${req.params.slug}?submitted=true`);
 });
 
 // --------------------------- Poort --------------------------------
