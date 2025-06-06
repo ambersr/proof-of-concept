@@ -13,24 +13,13 @@ app.engine("liquid", engine.express());
 // Views
 app.set("views", "./views");
 
-// --------------------------- Algemene API's & variabelen --------------------------------
+// --------------------------- Algemene API's, variabelen en functie --------------------------------
 
 const directusApiBaseUrl = "https://labelvier.nl/wp-json";
-const casesEndpoint = `${directusApiBaseUrl}/wp/v2/cases`;
-const mediaEndpoint = `${directusApiBaseUrl}/wp/v2/media/4374`;
-const usersEndpoint = `${directusApiBaseUrl}/wp/v2/users`;
-
+const casesEndpoint = `${directusApiBaseUrl}/wp/v2/cases/`;
+const mediaEndpoint = `${directusApiBaseUrl}/wp/v2/media/`;
+const usersEndpoint = `${directusApiBaseUrl}/wp/v2/users/`;
 const embedFilter = `_embed=true&acf_format=standard`;
-
-const perPage = 8;
-
-// --------------------------- GET routes --------------------------------
-
-// Home
-app.get("/", async function (req, res) {
-
-  res.render("index.liquid");
-});
 
 // Functie fetch omzetten naar JSON
 async function fetchJson(url) {
