@@ -4,6 +4,7 @@
     
     <h1>Projecten waar we trots op zijn!</h1>
 
+    {% render 'partials/cases-card.liquid' cases: cases %}
 
 </section>
 
@@ -31,7 +32,4 @@
     {% endif %}
 </div>
 
-<section class="mogelijkheden">
-    <h2>Wat kunnen we voor jou betekenen?</h2>
-    <a href="/">Bekijk de mogelijkheden</a>
-</section>
+{% render 'partials/mogelijkheden.liquid' %}
