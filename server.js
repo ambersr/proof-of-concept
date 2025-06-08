@@ -73,20 +73,55 @@ app.get("/cases/page/:pageNumber", async (req, res) => {
   });
 });
 
-// Cases detail
 app.get("/cases/:slug", async (req, res) => {
   const slug = req.params.slug;
 
-  // Cases detail ophalen
+  // cases en users data ophalen
   const casesdetailResponseJSON = await fetchJson(`${casesEndpoint}?slug=${slug}&${embedFilter}`);
+  const usersResponseJSON = await fetchJson(`${usersEndpoint}`);
 
-  // Users ophalen
-  const usersResponseJSON = await fetchJson(`${usersEndpoint}?_fields=id,name,acf.user_data.profile_image`);
+  // haal de projectleider en teamleden op uit de acf velden
+  const projectLeider = casesdetailResponseJSON[0].acf?.case_projectleider;
+  const teamLeden = casesdetailResponseJSON[0].acf?.case_team;
+
+  // koppel role en profiel afbeelding URL aan projectleider
+  if (projectLeider) {
+    const user = usersResponseJSON.find(currentUser => currentUser.id === projectLeider.ID);
+
+    // koppel de rol van de gebruiker aan de projectleider
+    projectLeider.role = user?.acf?.user_data?.role;
+
+    // als er een profielfoto is, haal dan de afbeelding op en koppel de URL (projectleider)
+    if (user?.acf?.user_data?.profile_image) {
+      const media = await fetchJson(`${mediaEndpoint}${user.acf.user_data.profile_image}`);
+      projectLeider.profile_image_url = media.source_url;
+    }
+    else {
+      projectLeider.profile_image_url = '';
+    }
+  }
+
+  // koppel role en profiel afbeelding URL aan teamleden
+  for (const teamLid of teamLeden) {
+    const user = usersResponseJSON.find(currentUser => currentUser.id === teamLid.ID);
+    teamLid.role = user?.acf?.user_data?.role;
+
+    // als er een profielfoto is, haal dan de afbeelding op en koppel de URL (teamleden)
+    if (user?.acf?.user_data?.profile_image) {
+      const media = await fetchJson(`${mediaEndpoint}${user.acf.user_data.profile_image}`);
+      teamLid.profile_image_url = media.source_url;
+    } 
+    else {
+      teamLid.profile_image_url = '';
+    }
+    
+  }
 
   res.render("cases-detail.liquid", {
-      cases: casesdetailResponseJSON,
-      users: usersResponseJSON
-    });
+    cases: casesdetailResponseJSON,
+    projectLeider,
+    teamLeden,
+  });
 });
 
 // --------------------------- Poort --------------------------------
