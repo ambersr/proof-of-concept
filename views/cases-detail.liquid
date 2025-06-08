@@ -6,7 +6,7 @@
     <div class="case-content">
         <ul class="breadcrumbs">
             <li><a href="/">Home</a></li>
-            <li><a href="/cases">Cases</a></li>
+            <li><a href="/cases/page/1">Cases</a></li>
             <li><a href="{{ case.slug }}">{{ case.title.rendered }}</a></li>
         </ul>
 
@@ -14,7 +14,39 @@
     </div>
 
     <section class="introductie">
-        <h1>{{ case.title.rendered | truncatewords: 8 }}</h1>
+        <h1>{{ case.title.rendered }}</h1>
+
+        <ul>
+            {% if projectLeider %}
+            <li class="projectleider">
+                {{ projectLeider.display_name }}
+                <br>
+                {{ projectLeider.role }}
+                <br>
+                {% if projectLeider.profile_image_url %}
+                <img src="{{ projectLeider.profile_image_url }}" alt="{{ projectLeider.display_name }}" width="96"
+                    height="96">
+                {% endif %}
+            </li>
+            {% endif %}
+
+            {% if teamLeden.size > 0 %}
+            {% for teamlid in teamLeden %}
+            <li class="teamlid">
+                {{ teamlid.display_name }}
+                <br>
+                {{ teamlid.role| default: 'Front-end developer' }}
+                <br>
+                {% if teamlid.profile_image_url %}
+                <img src="{{ teamlid.profile_image_url|default:'/assets/nathaniel-profile.png' }}" alt="{{ teamlid.display_name }}" width="96" height="96">
+
+                {% endif %}
+            </li>
+            {% endfor %}
+            {% endif %}
+        </ul>
+
+
 
         <ul class="labels">
             <li class="label">
