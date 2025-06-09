@@ -1,0 +1,294 @@
+* {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    /* ---------- Kleuren ---------- */
+    --primary-background-color: #ffffff;
+    --secondary-background-color: #E6E6E6;
+    --red-highlight-color: #E2655E;
+    --lightred-highlight-color: #F7CDD5;
+    --blue-highlight-color: #281CE2;
+    --lightblue-highlight-color: #EEF8FE;
+
+    --primary-text-color: #000000;
+    --secondary-text-color: #ffffff;
+
+    /* ---------- Fonts ---------- */
+    --font-paragraph: 'Hind Guntur', sans-serif;
+    --heading-font: 'Hind Guntur', sans-serif;
+}
+
+/* Fontfaces */
+@font-face {
+    font-family: 'Hind Guntur';
+    src: url('/fonts/hind-guntur/HindGuntur-Thin.woff2') format('woff2');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Hind Guntur';
+    src: url('/fonts/hind-guntur/HindGuntur-ExtraLight.woff2') format('woff2');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Hind Guntur';
+    src: url('/fonts/hind-guntur/HindGuntur-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Hind Guntur';
+    src: url('/fonts/HindGuntur-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Hind Guntur';
+    src: url('/fonts/hind-guntur/HindGuntur-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* ------------------- Heading & tekst elementen --------------------- */
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-weight: 300;
+    font-family: var(--heading-font);
+}
+
+h1 {
+    font-size: clamp(2.1875rem, 1.9022rem + 1.3043vw, 2.725rem);
+    line-height: 115%;
+}
+
+h2 {
+    font-size: clamp(1.5rem, 1.6rem + 0.7143vw, 2.5rem);
+    line-height: 110%;
+}
+
+h3 {
+    font-size: clamp(1.125rem, 1.0826rem + 0.1786vw, 1.25rem);
+    line-height: 115%;
+}
+
+h4 {
+    font-size: clamp(1.25rem, 1.0846rem + 0.8824vw, 1.5rem);
+    line-height: 118%;
+}
+
+h5 {
+    font-size: clamp(1.125rem, 0.9926rem + 0.7059vw, 1.875rem);
+    line-height: 118%;
+}
+
+h6 {
+    font-size: clamp(1rem, 0.9007rem + 0.5294vw, 1.5625rem);
+    line-height: 118%;
+}
+
+p {
+    font-size: clamp(1rem, 1rem + 0vw, 1rem);
+    line-height: 180%;
+    font-family: "Ubuntu Regular", "Ubuntu Fallback", sans-serif;
+}
+
+.text-bold {
+    font-weight: 700;
+}
+
+/* ---------------------------------- Focus state -------------------------------- */
+
+*:focus-visible {
+    outline: 3px dashed var(--primary-highlight-color);
+    outline-offset: 4px;
+}
+
+/* ---------------------------------- Classes kleuren -------------------------------- */
+
+.blue-bg {
+    background-color: var(--blue-highlight-color);
+}
+
+.red-bg {
+    background-color: var(--red-highlight-color);
+}
+
+.black-bg {
+    background-color: var(--primary-text-color);
+}
+
+.grey-bg {
+    background-color: var(--secondary-background-color);
+}
+
+.text-white {
+    color: var(--secondary-text-color);
+}
+
+.text-black {
+    color: var(--primary-text-color);
+}
+
+/* ---------------------------------- List elementen -------------------------------- */
+
+ul {
+    font-size: clamp(1rem, 1rem + 0vw, 1rem);
+    line-height: 200%;
+    font-family: var(--font-paragraph);
+}
+
+ul li {
+    list-style-type: none;
+}
+
+/* ---------------------------------- Formulier -------------------------------- */
+
+input {
+    background-color: var(--primary-background-color);
+    border: none;
+    padding: .8em;
+    font-size: clamp(1rem, 1rem + 0vw, 1rem);
+    font-family: var(--font-paragraph);
+}
+
+label {
+    font-size: clamp(1rem, 1rem + 0vw, 1rem);
+    font-family: var(--font-paragraph);
+}
+
+/* ---------------------------------- Knoppen -------------------------------- */
+
+button {
+    cursor: pointer;
+    font-size: 16px;
+    font-family: var(--font-paragraph);
+    color: var(--primary-text-color);
+    transition: transform ease-in-out .2s;
+    text-decoration: none;
+    border: none;
+}
+
+a {
+    font-size: 16px;
+    font-family: var(--font-paragraph), Arial, sans-serif;
+    color: var(--primary-text-color);
+    transition: transform ease-in-out .2s;
+    text-decoration: none;
+}
+
+/* Rode knop */
+.red-btn {
+    background-color: var(--red-highlight-color);
+    color: var(--secondary-text-color);
+    font-weight: 600;
+    transition: .5s;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    display: inline-block;
+    padding: .6em 1.2em .6em 1.2em;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background-color: var(--lightred-highlight-color);
+        z-index: -1;
+        transition: .5s;
+    }
+
+    &:hover::before {
+        width: 100%;
+    }
+
+    &:hover {
+        color: var(--red-highlight-color);
+    }
+}
+
+/* Blauwe knop */
+.blue-btn {
+    background-color: var(--blue-highlight-color);
+    color: var(--secondary-text-color);
+    font-weight: 600;
+    transition: .5s;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    display: inline-block;
+    padding: .6em 1.2em .6em 1.2em;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background-color: var(--lightblue-highlight-color);
+        z-index: -1;
+        transition: .5s;
+    }
+
+    &:hover::before {
+        width: 100%;
+    }
+
+    &:hover {
+        color: var(--blue-highlight-color);
+    }
+}
+
+/* Knop menu */
+.menu-btn {
+    background-color: var(--primary-background-color);
+    color: var(--primary-text-color);
+    font-weight: 600;
+    transition: .5s;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    display: inline-block;
+    padding: .6em 1.2em .6em 1.2em;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background-color: var(--primary-text-color);
+        z-index: -1;
+        transition: .5s;
+    }
+
+    &:hover::before {
+        width: 100%;
+    }
+
+    &:hover {
+        color: var(--secondary-text-color);
+    }
+}
