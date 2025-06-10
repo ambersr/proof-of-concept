@@ -237,7 +237,7 @@ a {
     z-index: 1;
     overflow: hidden;
     display: inline-block;
-    padding: .6em 1.2em .6em 1.2em;
+    padding: 1.05em 1.2em 1.05em 1.2em;
 
     &::before {
         content: '';
@@ -280,6 +280,40 @@ a {
         width: 0;
         height: 100%;
         background-color: var(--primary-text-color);
+        z-index: -1;
+        transition: .5s;
+    }
+
+    &:hover::before {
+        width: 100%;
+    }
+
+    &:hover {
+        color: var(--secondary-text-color);
+    }
+}
+
+/* Submenu menu */
+.submenu-btn {
+    background-color: var(--primary-background-color);
+    color: var(--primary-text-color);
+    font-weight: 600;
+    transition: .5s;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: nowrap;
+    padding: .3em 2em .3em 1.2em;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background-color: var(--red-highlight-color);
         z-index: -1;
         transition: .5s;
     }
