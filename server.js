@@ -42,63 +42,47 @@ app.get("/", async function (req, res) {
 });
 
 // Cases overzicht (met paginatie)
-app.get("/cases/page/:pageNumber", async (req, res)=> {
-        const page=req.params.pageNumber;
-        const perPage=8;
+app.get("/cases/page/:pageNumber", async (req, res) => {
+  const page = req.params.pageNumber;
+  const perPage = 8;
 
-        // Cases ophalen
-        const casesURL=`${casesEndpoint}?per_page=${perPage}&page=${page}&_fields=title,slug,yoast_head_json.og_description,yoast_head_json.og_image,acf.logo_white`;
-        console.log(casesURL)
-        const casesResponse=await fetch(casesURL);
-        const type=casesResponse.headers.get('content-type');
+  // Cases ophalen
+  const casesResponse = await fetch(`${casesEndpoint}?per_page=${perPage}&page=${page}&_fields=title,slug,yoast_head_json.og_description,yoast_head_json.og_image,acf.logo_white`, {
+     headers: {
+    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Safari/605.1.15',
+    'Accept': 'application/json',
+  }
+  });
 
-        if (type == 'application/json') {
-            const casesResponseJSON=await casesResponse.json();
-            // Totaal aantal pagina’s uit headers
-            const totalPages=casesResponse.headers.get("X-WP-TotalPages");
+  const casesResponseJSON = await casesResponse.json();
 
-            // array met alle cases gekoppeld met media data
-            const casesWithMedia=[];
+  // Totaal aantal pagina’s uit headers
+  const totalPages = casesResponse.headers.get("X-WP-TotalPages");
 
-            // als er een logo_white veld is
-            for (const singleCase of casesResponseJSON) {
-                let logo_white_url=null;
+  // array met alle cases gekoppeld met media data
+  const casesWithMedia = [];
 
-                // als er een logo_white veld is
-                if (singleCase.acf?.logo_white) {
-                    const mediaResponseJSON=await fetchJson(`${mediaEndpoint}${singleCase.acf.logo_white}`);
-                    logo_white_url=mediaResponseJSON?.source_url || null;
-                }
+  // als er een logo_white veld is
+  for (const singleCase of casesResponseJSON) {
+    let logo_white_url = null;
 
-                // voeg aan de singleCase de property logo_white_url toe
-                casesWithMedia.push( {
-                        ...singleCase, logo_white_url
-                    }
-                );
-            }
-
-            // Pagina renderen
-            res.render("cases.liquid", {
-                    cases: casesWithMedia,
-                    currentPage: page,
-                    totalPages,
-                }
-
-            );
-
-        }
-
-        else {
-            const casesResponseText=await casesResponse.text();
-            console.log(casesResponseText);
-
-            res.render("cases.liquid", {}
-
-            );
-        }
+    // als er een logo_white veld is
+    if (singleCase.acf?.logo_white) {
+      const mediaResponseJSON = await fetchJson(`${mediaEndpoint}${singleCase.acf.logo_white}`);
+      logo_white_url = mediaResponseJSON?.source_url || null;
     }
 
-);
+    // voeg aan de singleCase de property logo_white_url toe
+    casesWithMedia.push({ ...singleCase, logo_white_url });
+  }
+
+  // Pagina renderen
+  res.render("cases.liquid", {
+    cases: casesWithMedia,
+    currentPage: page,
+    totalPages,
+  });
+});
 
 app.get("/cases/:slug", async (req, res) => {
   const slug = req.params.slug;
