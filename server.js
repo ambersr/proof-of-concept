@@ -42,7 +42,9 @@ app.get("/cases/page/:pageNumber", async (req, res) => {
   const perPage = 8;
 
   // Cases ophalen
-  const casesResponse = await fetch(`${casesEndpoint}?per_page=${perPage}&page=${page}&_fields=title,slug,yoast_head_json.og_description,yoast_head_json.og_image,acf.logo_white`);
+  const casesURL = `${casesEndpoint}?per_page=${perPage}&page=${page}&_fields=title,slug,yoast_head_json.og_description,yoast_head_json.og_image,acf.logo_white`;
+  console.log(casesURL)
+  const casesResponse = await fetch(casesURL);
   const casesResponseJSON = await casesResponse.json();
 
   // Totaal aantal pagina’s uit headers
