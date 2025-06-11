@@ -29,7 +29,8 @@
   "dependencies": {
     "express": "^5.0.1",
     "liquidjs": "^10.21.0",
-    "node-fetch": "^3.3.2"
+    "node-fetch": "^3.3.2",
+    "user-agents": "^1.1.567"
   },
   "devDependencies": {
     "nodemon": "^3.1.10"
