@@ -5,6 +5,7 @@ import { Liquid } from "liquidjs";
 // Express
 const app = express();
 app.use(express.static("public"));
+app.use(express.urlencoded({ extended: true }));
 
 // Liquid
 const engine = new Liquid();
@@ -20,6 +21,7 @@ const casesEndpoint = `${directusApiBaseUrl}/wp/v2/cases/`;
 const mediaEndpoint = `${directusApiBaseUrl}/wp/v2/media/`;
 const usersEndpoint = `${directusApiBaseUrl}/wp/v2/users/`;
 const embedFilter = `_embed=true&acf_format=standard`;
+const messagesEndpoint = "https://fdnd-agency.directus.app/items/avl_messages";
 
 // Functie fetch omzetten naar JSON
 async function fetchJson(url) {
@@ -90,6 +92,7 @@ app.get("/cases/:slug", async (req, res) => {
   // cases en users data ophalen
   const casesdetailResponseJSON = await fetchJson(`${casesEndpoint}?slug=${slug}&${embedFilter}`);
   const usersResponseJSON = await fetchJson(`${usersEndpoint}`);
+  const messagesResponseJSON = await fetchJson(`${messagesEndpoint}`);
 
   // haal de projectleider en teamleden op uit de acf velden
   const projectLeider = casesdetailResponseJSON[0].acf?.case_projectleider;
@@ -125,14 +128,41 @@ app.get("/cases/:slug", async (req, res) => {
     else {
       teamLid.profile_image_url = '';
     }
-    
   }
 
   res.render("cases-detail.liquid", {
     cases: casesdetailResponseJSON,
     projectLeider,
     teamLeden,
+    submitted: req.query.submitted === "true"
   });
+});
+
+// ------------------------ POST routes ------------------------
+
+app.post("/cases/:slug", async (req, res) => {
+  const { nameField, lastnameField, emailField, textField, casetitleField } = req.body;
+ 
+  try {
+    await fetch("https://fdnd-agency.directus.app/items/avl_messages", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json;charset=UTF-8",
+      },
+      body: JSON.stringify({
+        from: `${nameField} ${lastnameField}`,
+        for: emailField,
+        text: `Case:${casetitleField} - Bericht:${textField}`
+      }),
+    });
+
+    console.log(`Bericht verzonden door ${nameField} ${lastnameField} voor case "${casetitleField}"`)
+        
+    res.redirect(`/cases/${req.params.slug}?submitted=true`);
+  } catch (error) {
+    console.error("Fout bij verzenden van formuliergegevens:", error);
+    res.status(500).send("Er ging iets mis met het verzenden van het formulier.");
+  }
 });
 
 // --------------------------- Poort --------------------------------
