@@ -165,7 +165,7 @@ ul li {
 input {
     background-color: var(--primary-background-color);
     border: none;
-    padding: .8em;
+    padding: 1.05em 1.2em 1.05em 1.2em;
     font-size: clamp(1rem, 1rem + 0vw, 1rem);
     font-family: var(--font-paragraph);
 }

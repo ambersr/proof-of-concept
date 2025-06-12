@@ -174,8 +174,9 @@
     }
 
     .mogelijkheden {
-        padding: 0em 4em 3em;
+        padding: 0em 4em 4em;
         justify-content: space-between;
+        align-items: center;
     }
 }
 
