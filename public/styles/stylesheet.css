@@ -76,7 +76,7 @@ h5 {
 }
 
 h1 {
-    font-size: clamp(2.1875rem, 1.9022rem + 1.3043vw, 2.725rem);
+   font-size: clamp(1.875rem, 1.329rem + 2.2989vw, 3.125rem);
     line-height: 115%;
 }
 

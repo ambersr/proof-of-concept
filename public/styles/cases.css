@@ -29,6 +29,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    figure {
+        width: 100%;
+    }
 }
 
 .wrapper-image .banner {
@@ -99,4 +103,94 @@
 
 .pagination {
     padding: 0 2em 3em 2em;
+}
+
+.mogelijkheden {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    padding: 0 2em 4em 2em;
+}
+
+@media screen and (min-width: 720px) {
+    .cases-section {
+        padding: 7em 4em 3em;
+        display: flex;
+        flex-direction: column;
+        gap: 2em;
+    }
+
+    .cases {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+        gap: 0;
+    }
+
+    .case a {
+        display: flex;
+        gap: 0;
+        flex-direction: row;
+
+        .wrapper-case-info {
+            padding: 3.5em;
+            width: 50%;
+            display: flex;
+            justify-content: center;
+
+            .case-info {
+                width: 100%;
+                justify-content: center;
+                /* padding: 2.5em; */
+
+            }
+        }
+
+    }
+
+    .case:nth-child(even) a {
+        flex-direction: row-reverse;
+    }
+
+    .case:nth-child(even) .wrapper-case-info {
+        padding: 3.5em 3.5em 3.5em 0;
+    }
+
+    .wrapper-image {
+        width: 50%;
+
+        figure {
+            height: 100%;
+
+            .banner {
+                min-height: 100%;
+                object-fit: cover;
+                display: block;
+            }
+        }
+    }
+
+    .pagination {
+        padding: 0em 4em 3em;
+    }
+
+    .mogelijkheden {
+        padding: 0em 4em 3em;
+        justify-content: space-between;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .cases-section {
+        padding: 8em 13em 3em;
+        gap: 3em;
+    }
+
+    .pagination {
+         padding: 0em 13em 3em;
+    }
+
+    .mogelijkheden {
+        padding: 1em 13em 4em;
+    }
+
 }

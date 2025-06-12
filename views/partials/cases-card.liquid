@@ -2,17 +2,23 @@
     {% for case in cases %}
     <li class="case">
         <a href="/cases/{{ case.slug }}">
-        <div class="wrapper-image">
-            <img class="banner" src="{{ case.yoast_head_json.og_image[0].url }}" alt="" width="400" height="400">
-            {% if case.logo_white_url %}
-            <img class="logo" src="{{ case.logo_white_url }}" alt="Logo White" width="300" height="50">
-            {% endif %}
-        </div>
-            <section class="case-info">
-                <h2><mark>{{ case.title.rendered }}</mark></h2>
-                <p>{{ case.yoast_head_json.og_description | truncatewords: 20 }}</p>
-                <span>Lees verder<img src="/assets/arrow-right.svg" alt="" width="13" height="13"></span>
-            </section>
+            <div class="wrapper-image">
+                <figure>
+                    <img class="banner" src="{{ case.yoast_head_json.og_image[0].url }}" alt="" width="400"
+                        height="400">
+                </figure>
+                {% if case.logo_white_url %}
+                <img class="logo" src="{{ case.logo_white_url }}" alt="Logo White" width="300" height="50">
+                {% endif %}
+            </div>
+            <div class="wrapper-case-info">
+                <section class="case-info">
+                    <h2><mark>{{ case.title.rendered }}</mark></h2>
+                    <p>{{ case.yoast_head_json.og_description | truncatewords:30 }}</p>
+                    <span>Lees verder<img src="/assets/arrow-right.svg" alt="" width="13" height="13"></span>
+                </section>
+            </div>
+
         </a>
     </li>
     {% endfor %}

@@ -246,6 +246,7 @@ form.search-nav {
         box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.122);
         position: fixed;
         top: 0;
+        z-index: 9999;
     }
 }
 
