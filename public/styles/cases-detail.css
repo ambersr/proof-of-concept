@@ -1,0 +1,260 @@
+.cases-detail-banner {
+    padding: 7em 2em 1em 2em;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+.case-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+
+    .breadcrumbs {
+
+        li {
+            display: inline;
+
+            a {
+                display: inline;
+                margin-right: .4em;
+            }
+        }
+    }
+}
+
+.case-content img {
+    width: 100%;
+    height: 11em;
+    object-fit: cover;
+}
+
+.introductie {
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+
+    h1 {
+        font-size: 20px;
+    }
+
+    .labels {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0 1em;
+
+        a {
+            color: var(--red-highlight-color);
+            font-weight: 300;
+        }
+
+        .label p{
+            display: flex;
+            align-items: center;
+            gap: .5em;
+            color: var(--third-text-color);
+            font-weight: 300;
+        }
+    }
+}
+
+.team {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(8em, 1fr));
+    gap: 1em;
+    padding: 1.5em 0 0;
+
+    .projectleider,
+    .teamlid {
+        display: flex;
+        flex-direction: column;
+        gap: .2em;
+
+        img {
+            width: 8em;
+            height: 8em;
+            object-fit: cover;
+            margin: 0 0 1em 0;
+        }
+
+        h3 {
+            font-weight: 700;
+            font-size: 25px;
+        }
+
+        p {
+            line-height: 1.5em;
+            font-weight: 300;
+        }
+    }
+}
+
+.case-detail-content {
+    font-family: var(--font-paragraph);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    padding: 0em 2em 0em;
+}
+
+.case-detail-content img,
+video,
+iframe {
+    width: 100%;
+    height: auto;
+}
+
+/* Style in de content (API) aanpassen */
+div[style="width: 61rem; margin: 0 auto;"] {
+    width: 100% !important;
+    margin: 0 !important;
+}
+
+.case-detail-content .projectleider {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding-bottom: 2em;
+
+    .wrapper-projectleider {
+        display: flex;
+        align-items: center;
+        gap: 1em;
+
+        img {
+            width: 5em;
+            height: 5em;
+            border-radius: 100%;
+        }
+
+        .info {
+
+            .second {
+                display: block;
+                margin-top: -.5em;
+            }
+            a {
+                color: var(--red-highlight-color);
+            }
+        }
+    }
+}
+
+.share-sectie {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    padding-bottom: 2em;
+    
+    h3 {
+        font-size: 16px;
+    }
+
+    .share-buttons {
+        display: flex;
+        flex-direction: row;
+        gap: 2em;
+
+        svg {
+            width: 2em;
+            height: 2em;
+        }
+    }
+}
+
+.contact-formulier {
+    position: relative;
+    background-color: #e5e5e5;
+
+    .contact-wrapper {
+        padding: 0 2em;
+
+        h4 {
+            font-size: 25px;
+            line-height: 1.3em;
+        }
+
+        p {
+            padding: 1em 0 1em 0;
+        }
+    }
+}
+
+.contact-formulier::before {
+    background: linear-gradient(-25deg, #e5e5e5 16px, #e5e5e5 16px, #e5e5e5 16px, transparent 0),
+    linear-gradient(25deg, #e5e5e5 16px, transparent 0);
+    background-position: left top;
+    background-repeat: repeat-x;
+    background-size: 35px 35px;
+    content: " ";
+    display: block;
+    height: 32px;
+    width: 100%;
+    padding: 0;
+    position: relative;
+    top: -32px;
+    left:0;
+}
+
+.contact-formulier::after {
+    background: linear-gradient(-25deg, #e5e5e5 16px, #e5e5e5 16px, #e5e5e5 16px, transparent 0),
+        linear-gradient(25deg, #e5e5e5 16px, transparent 0);
+    background-position: left top;
+    background-repeat: repeat-x;
+    background-size: 35px 35px;
+    content: " ";
+    display: block;
+    height: 32px;
+    width: 100%;
+    padding: 0;
+    position: relative;
+    bottom: -32px;
+    left: 0;
+     transform: scaleY(-1);
+}
+
+.contact-wrapper form {
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+    align-items: baseline;
+
+    input {
+        width: 100%;
+    }
+
+    textarea {
+        border: none;
+        height: 8em;
+        width: 100%;
+    }
+}
+
+.vorige-btn {
+    padding: 3em 0;
+    display: flex;
+    align-items: center;
+    gap: .4em;
+    transition: .2s ease-in-out;
+    
+    svg {
+        transform: scaleX(-1);
+    }
+
+    &:hover {
+        color: var(--red-highlight-color);
+        transition: .2s ease-in-out;
+    }
+
+     &:hover svg path {
+         fill: var(--red-highlight-color);
+         transition: .2s ease-in-out;
+     }
+}
+
+.mogelijkheden {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+     padding: 0 2em 4em 2em;
+}
