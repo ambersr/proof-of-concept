@@ -1,0 +1,97 @@
+.top-section {
+    position: relative;
+    background: #e5e5e5;
+    width: 100%;
+
+    .footer-wrapper {
+        padding: 0 2em 3em;
+        display: flex;
+        flex-direction: column;
+        gap: 2em;
+    }
+}
+
+.top-section::before {
+    background: linear-gradient(-25deg, #e5e5e5 16px, #e5e5e5 16px, #e5e5e5 16px, transparent 0),
+    linear-gradient(25deg, #e5e5e5 16px, transparent 0);
+    background-position: left top;
+    background-repeat: repeat-x;
+    background-size: 35px 35px;
+    content: " ";
+    display: block;
+    height: 32px;
+    width: 100%;
+    padding: 0;
+    position: relative;
+    top: -32px;
+    left:0;
+}
+
+.top-section .main-info {
+    display: flex;
+    flex-direction: column;
+    gap: .6em;
+    
+    h3 {
+        font-size: 30px;
+    }
+
+    p {
+        font-family: var(--font-paragraph);
+    }
+
+    a {
+       text-decoration: underline;
+    }
+}
+
+.diensten, .informatie {
+     display: flex;
+     flex-direction: column;
+     gap: .6em;
+
+    h3 {
+        font-size: 30px;
+    }
+
+    .cookie-link {
+        padding-top: 1.5em;
+        text-decoration: underline;
+    }
+
+    a {
+        transition: .2s ease-in-out;
+    }
+
+    a:hover {
+        background-color: var(--lightred-highlight-color);
+        transition: .2s ease-in-out;
+    }
+}
+
+.btm-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 3em 2em 8em 2em;
+    background-color: var(--red-highlight-color);
+    color: var(--secondary-text-color);
+    
+    h2 {
+        font-size: 25px;
+    }
+
+    form{
+        display: flex;
+        flex-direction: column;
+        gap: .5em;
+        
+        input {
+            width: 100%;
+        }
+
+        button {
+            align-self: flex-end;
+        }
+    }
+}
