@@ -2,7 +2,7 @@
 
 <section class="cases-section">
     
-    <h1><span class="text-bold">Projecten </span> waar we trots op zijn!</h1>
+    <h1><span class="text-bold">Projecten</span> waar we trots op zijn!</h1>
 
     {% render 'partials/cases-card.liquid' cases: cases %}
 
@@ -12,7 +12,7 @@
     {% if totalPages > 1 %}
 
         {% if currentPage > 1 %}
-            <a href="/cases/page/{{ currentPage | minus: 1 }}">← Vorige</a>
+            <a class="red-btn" href="/cases/page/{{ currentPage | minus: 1 }}">← Vorige</a>
         {% endif %}
 
         {% for page in (1..totalPages) %}
@@ -20,13 +20,13 @@
             {% if page == currentPage %}
                 <span><strong>{{ page }}</strong></span>
             {% else %}
-                <a href="/cases/page/{{ page }}">{{ page }}</a>
+                <a class="red-btn" href="/cases/page/{{ page }}">{{ page }}</a>
             {% endif %}
 
         {% endfor %}
 
         {% if currentPage < totalPages %}
-            <a href="/cases/page/{{ currentPage | plus: 1 }}">Volgende →</a>
+            <a class="red-btn" href="/cases/page/{{ currentPage | plus: 1 }}">Volgende →</a>
         {% endif %}
 
     {% endif %}
