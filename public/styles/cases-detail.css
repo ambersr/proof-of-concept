@@ -291,6 +291,35 @@ div[style="width: 61rem; margin: 0 auto;"] {
     gap: 1em;
 }
 
+/* Rode knop */
+.red-btn-checked {
+    background-color: var(--blue-highlight-color);
+    color: var(--secondary-text-color);
+    font-weight: 600;
+    transition: .5s;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    display: inline-flex;
+    padding: 1.05em 1.2em 1.05em 1.2em;
+    cursor: default;
+    gap: .5em;
+
+    img {
+        width: 18px !important;
+    }
+}
+
+.feedback {
+    display: flex;
+    align-items: center;
+    gap: .5em;
+
+    img {
+        width: 18px !important;
+    }
+
+}
 
 /* Media queries */
 @media screen and (min-width: 720px) {
@@ -360,3 +389,35 @@ div[style="width: 61rem; margin: 0 auto;"] {
         padding: 0em 25em 3em;
     }
 }
+
+/* Loading state animatie */
+.test.loading .label-btn {
+    display: none;
+}
+
+.test.loading .loading-img::before {
+    content: 'Loading...';
+}
+
+.test.loading .loading-img::after {
+    content: "";
+    display: inline-block;
+    background-image: url('/assets/spinner.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 16px;
+    height: 16px;
+    margin-left: 8px;
+    animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
