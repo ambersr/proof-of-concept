@@ -122,31 +122,47 @@
     </section>
 
     <div class="contact-formulier">
-        <section class="contact-wrapper">
-            <h4>Vragen of benieuwd naar de <span class="text-bold">mogelijkheden</span>?</h4>
-            <p>Vul hieronder je contactgevens in en we nemen zo snel mogelijk contact met je op.</p>
+        <div class="contact-wrapper">
+            <section class="wrapper-1">
+                <h4>Vragen of benieuwd naar de <span class="text-bold">mogelijkheden</span>?</h4>
+                <p>Vul hieronder je contactgevens in en we nemen zo snel mogelijk contact met je op.</p>
 
-            <form method="POST" action="/cases/{{ case.slug }}">
-                <label for="voornaam">Voornaam:</label>
-                <input type="text" name="voornaam" id="voornaam" required>
+                <form class="test" method="POST" action="/cases/{{ cases[0].slug }}"
+                    data-enhanced="form-{{ cases[0].slug }}">
+                    <input type="hidden" name="casetitleField" value="{{ cases[0].title.rendered }}">
 
-                <label for="achternaam">Achternaam:</label>
-                <input type="text" name="achternaam" id="achternaam" required>
+                    <label for="voornaam">Voornaam:</label>
+                    <input type="text" name="nameField" id="voornaam" placeholder="bijv. Sanne" required>
 
-                <label for="email">E-mailadres:</label>
-                <input type="email" name="email" id="email" required>
+                    <label for="achternaam">Achternaam:</label>
+                    <input type="text" name="lastnameField" id="achternaam" placeholder="bijv. Hogeveld" required>
 
-                <label for="bericht">Bericht:</label>
-                <textarea name="bericht" id="bericht" required></textarea>
+                    <label for="email">E-mailadres:</label>
+                    <input type="email" name="emailField" id="email" placeholder="bijv. sanne.hogeveld@gmail.com"
+                        required>
 
-                {% if submitted %}
-                <button>Gelukt!! Gegevens zijn verzonden</button>
-                {% else %}
-                <button class="red-btn" type="submit">Gegevens verzenden</button>
-                {% endif %}
-            </form>
-        </section>
+                    <label for="bericht">Bericht:</label>
+                    <textarea name="textField" id="bericht"
+                        placeholder="Hi Label Vier, ik zou graag meer willen weten over.." required></textarea>
 
+                    {% if submitted %} 
+                    <div class="feedback">
+                        <img src="/assets/info-icon.svg" alt="">
+                         <p>Je gegevens zijn verzonden we nemen zo snel mogelijk contact met je op!</p>
+                    </div>
+                   
+                    <button class="red-btn-checked" disabled>Gegevens verzonden
+                        <img src="/assets/check-icon.svg" alt="" width="10" height="10">
+                    </button>
+                   
+                    {% else %}
+                    <button class="red-btn" type="submit">
+                    <span class="label-btn">Gegevens verzenden</span><span class="loading-img"></span>
+                    </button>
+                    {% endif %}
+                </form>
+            </section>
+        </div>
     </div>
 
     <a class="vorige-btn" href="/cases/page/1">
@@ -162,5 +178,7 @@
 {% render 'partials/mogelijkheden.liquid' %}
 
 {% endfor %}
+
+<script src="/scripts/form.js"></script>
 
 {% render "partials/foot.liquid" %}
