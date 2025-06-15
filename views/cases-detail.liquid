@@ -31,31 +31,33 @@
             </li>
         </ul>
 
-        <ul class="team">
-            {% if projectLeider %}
-            <li class="projectleider">
-                {% if projectLeider.profile_image_url %}
-                <img src="{{ projectLeider.profile_image_url }}" alt="{{ projectLeider.display_name }}" width="96"
-                    height="96">
-                {% endif %}
-                <h3>{{ projectLeider.display_name | split: " " | first | capitalize }}</h3>
-                <p>{{ projectLeider.role }}</p>
-            </li>
-            {% endif %}
 
-            {% if teamLeden.size > 0 %}
-            {% for teamlid in teamLeden %}
-            <li class="teamlid">
-                {% if teamlid.profile_image_url %}
-                <img src="{{ teamlid.profile_image_url|default:'/assets/nathaniel-profile.png' }}"
-                    alt="{{ teamlid.display_name }}" width="96" height="96">
+        <section class="team-sectie">
+            <h2>Het team achter dit project:</h2>
+            <ul class="team">
+                {% if projectLeider %}
+                <li class="projectleider">
+                    {% if projectLeider.profile_image_url %}
+                    <img src="{{ projectLeider.profile_image_url }}" alt="{{ projectLeider.display_name }}" width="96"
+                        height="96">
+                    {% endif %}
+                    <h3>{{ projectLeider.display_name | split: " " | first | capitalize }}</h3>
+                    <p>{{ projectLeider.role }}</p>
+                </li>
                 {% endif %}
-                <h3>{{ teamlid.display_name | split: " " | first | capitalize }}</h3>
-                <p>{{ teamlid.role| default: 'Front-end developer'}}</p>
-            </li>
-            {% endfor %}
-            {% endif %}
-        </ul>
+
+                {% if teamLeden.size > 0 %}
+                {% for teamlid in teamLeden %}
+                <li class="teamlid">
+                    {% if teamlid.profile_image_url %}
+                    <img src="{{ teamlid.profile_image_url|default:'/assets/nathaniel-profile.png' }}"
+                        alt="{{ teamlid.display_name }}" width="96" height="96">
+                    {% endif %}
+                    <h3>{{ teamlid.display_name | split: " " | first | capitalize }}</h3>
+                    <p>{{ teamlid.role| default: 'Front-end developer'}}</p>
+                </li>
+                {% endfor %}
+                {% endif %}
     </section>
 </header>
 
