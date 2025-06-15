@@ -390,28 +390,44 @@ div[style="width: 61rem; margin: 0 auto;"] {
     }
 }
 
-/* Loading state animatie */
-.test.loading .label-btn {
+.loading {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5em;
+    width: 100%;
     display: none;
+
+    img {
+        display: flex;
+        align-self: center;
+        width: 5em;
+        height: 5em;
+        margin-bottom: 1.5em;
+        animation: spin 1s linear infinite;
+    }
+
+    h3 {
+        font-weight: 700;
+        font-size: 25px;
+    }
+
+    p {
+        font-size: 18px;
+    }
 }
 
-.test.loading .loading-img::before {
-    content: 'Loading...';
+.loading.show {
+    display: flex;
 }
 
-.test.loading .loading-img::after {
-    content: "";
-    display: inline-block;
-    background-image: url('/assets/spinner.svg');
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 16px;
-    height: 16px;
-    margin-left: 8px;
-    animation: rotation 1s linear infinite;
+.hidden {
+    display: none !important;
 }
 
-@keyframes rotation {
+@keyframes spin {
     0% {
         transform: rotate(0deg);
     }
@@ -419,6 +435,41 @@ div[style="width: 61rem; margin: 0 auto;"] {
     100% {
         transform: rotate(360deg);
     }
+}
+
+.form-content {
+    width: 100%;
+}
+
+.succes-state {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5em;
+    width: 100%;
+
+    img {
+        width: 5em;
+        height: 5em;
+        margin-bottom: 1.5em;
+    }
+
+    h3 {
+        font-weight: 700;
+        font-size: 25px;
+    }
+
+    p {
+        font-size: 18px;
+    }
+}
+
+.navigation-cases {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .scroll-to-top {
