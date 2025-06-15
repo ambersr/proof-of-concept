@@ -9,12 +9,20 @@ document.addEventListener('submit', async function (event) {
 
     event.preventDefault()
 
-    form.classList.add("loading")
+    const contactForm = form.querySelector('.loading');
+        if (loadingDiv) {
+            contactForm.classList.add('show');
+        }
+        
+    const contentForm = form.querySelector('.form-content');
+        if (contentForm) {
+            contentForm.classList.add('hidden');
+        }
 
     const response = await fetch(form.action, {
         method: form.method,
         body: new URLSearchParams(new FormData(form)),
-        redirect: 'follow',
+        redirect: 'follow'
     })
 
     const responseText = await response.text()
