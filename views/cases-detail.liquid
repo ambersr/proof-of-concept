@@ -121,47 +121,64 @@
         </ul>
     </section>
 
-    <div class="contact-formulier">
+    <section class="contact-formulier">
         <div class="contact-wrapper">
-            <section class="wrapper-1">
-                <h4>Vragen of benieuwd naar de <span class="text-bold">mogelijkheden</span>?</h4>
-                <p>Vul hieronder je contactgevens in en we nemen zo snel mogelijk contact met je op.</p>
+            <form class="contact-form" method="POST" action="/cases/{{ cases[0].slug }}"
+                data-enhanced="form-{{ cases[0].slug }}">
 
-                <form class="test" method="POST" action="/cases/{{ cases[0].slug }}"
-                    data-enhanced="form-{{ cases[0].slug }}">
+                <div class="form-content">
+                    {% if not submitted %}
+                    <h4>Enthousiast geworden of benieuwd wat we voor jou kunnen <span
+                            class="text-bold">betekenen</span>?</h4>
+                    <p>Laat je gegevens achter, we nemen contact met je op om de mogelijkheden te bespreken.</p>
+
                     <input type="hidden" name="casetitleField" value="{{ cases[0].title.rendered }}">
 
-                    <label for="voornaam">Voornaam:</label>
-                    <input type="text" name="nameField" id="voornaam" placeholder="bijv. Sanne" required>
-
-                    <label for="achternaam">Achternaam:</label>
-                    <input type="text" name="lastnameField" id="achternaam" placeholder="bijv. Hogeveld" required>
-
-                    <label for="email">E-mailadres:</label>
-                    <input type="email" name="emailField" id="email" placeholder="bijv. sanne.hogeveld@gmail.com"
-                        required>
-
-                    <label for="bericht">Bericht:</label>
-                    <textarea name="textField" id="bericht"
-                        placeholder="Hi Label Vier, ik zou graag meer willen weten over.." required></textarea>
-
-                    {% if submitted %} 
-                    <div class="feedback">
-                        <img src="/assets/info-icon.svg" alt="">
-                         <p>Je gegevens zijn verzonden we nemen zo snel mogelijk contact met je op!</p>
+                    <div class="wrapper-input">
+                        <label for="voornaam">Voornaam*</label>
+                        <input type="text" name="nameField" id="voornaam" placeholder="bijv. Sanne" required>
+                        <span></span>
                     </div>
-                   
-                    <button class="red-btn-checked" disabled>Gegevens verzonden
-                        <img src="/assets/check-icon.svg" alt="" width="10" height="10">
-                    </button>
-                   
+
+                    <div class="wrapper-input">
+                        <label for="achternaam">Achternaam*</label>
+                        <input type="text" name="lastnameField" id="achternaam" placeholder="bijv. Hogeveld" required>
+                        <span></span>
+                    </div>
+
+                    <div class="wrapper-input">
+                        <label for="email">E-mailadres*</label>
+                        <input type="email" name="emailField" id="email" placeholder="bijv. sanne.hogeveld@gmail.com"
+                            required>
+                        <span></span>
+                    </div>
+
+                    <div class="wrapper-input">
+                        <label for="bericht">Bericht*</label>
+                        <textarea name="textField" id="bericht"
+                            placeholder="Hi Label Vier, ik ben benieuwd of jullie me kunnen helpen met..."
+                            required></textarea>
+                        <span></span>
+                    </div>
+
+                    <button class="red-btn" type="submit">Gegevens verzenden</button>
+
                     {% else %}
-                    <button class="red-btn" type="submit">
-                    <span class="label-btn">Gegevens verzenden</span><span class="loading-img"></span>
-                    </button>
+                    <section class="succes-state">
+                        <img src="/assets/check-icon-succs.svg" alt="" width="20" height="20" loading="eager">
+                        <h3>Gelukt! Gegevens verstuurd</h3>
+                        <p>Jouw gegevens zijn opgestuurd,<br> er wordt zo snel mogelijk contact met je opgenomen.</p>
+                    </section>
                     {% endif %}
-                </form>
-            </section>
+                </div>
+
+                <section class="loading">
+                    <img src="/assets/spinner.svg" alt="" width="20" height="20">
+                    <h3>Gegevens versturen..</h3>
+                    <p>Het ingevulde formulier is nu bezig<br> met het verzenden.</p>
+                </section>
+
+            </form>
         </div>
     </div>
 

@@ -169,6 +169,30 @@ input {
     font-size: clamp(1rem, 1rem + 0vw, 1rem);
     font-family: var(--font-paragraph);
     font-weight: 200;
+
+    &:user-valid {
+        border: 2px solid rgb(1, 162, 1);
+    }
+
+    &:user-valid + span::before {
+        content: "✓";
+        color: rgb(1, 162, 1);
+        position: absolute;
+        right: 1em;
+        top: 2.8em;
+    }
+
+    &:user-invalid {
+        border: 2px solid red;
+    }
+
+    &:user-invalid+span::before {
+        content: "✖";
+        color: red;
+        position: absolute;
+        right: 1em;
+        top: 2.8em;
+    }
 }
 
 textarea {
@@ -176,6 +200,31 @@ textarea {
     font-family: var(--font-paragraph);
     font-size: clamp(1rem, 1rem + 0vw, 1rem);
     font-weight: 200;
+    border: none;
+    
+     &:user-valid {
+         border: 2px solid rgb(1, 162, 1);
+     }
+
+     &:user-valid+span::before {
+         content: "✓";
+         color: rgb(1, 162, 1);
+         position: absolute;
+         right: 1em;
+         top: 2.8em;
+     }
+
+     &:user-invalid {
+         border: 2px solid red;
+     }
+
+     &:user-invalid+span::before {
+         content: "✖";
+         color: red;
+         position: absolute;
+         right: 1em;
+         top: 2.8em;
+     }
 }
 
 label {
@@ -183,6 +232,8 @@ label {
     font-size: clamp(1rem, 1rem + 0vw, 1rem);
     font-family: var(--font-paragraph);
 }
+
+
 
 /* ---------------------------------- Knoppen -------------------------------- */
 
@@ -250,6 +301,7 @@ a {
     background-color: var(--blue-highlight-color);
     color: var(--secondary-text-color);
     font-weight: 600;
+    font-family: var(--font-paragraph);
     transition: .5s;
     position: relative;
     z-index: 1;
