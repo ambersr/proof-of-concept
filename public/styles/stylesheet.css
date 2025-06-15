@@ -425,3 +425,37 @@ a {
         width: 100%;
     }
 }
+
+/* Scroll to top btn */
+.scroll-btn {
+    background-color: var(--primary-text-color);
+    color: var(--primary-text-color);
+    font-weight: 600;
+    transition: .5s;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    display: inline-block;
+    padding: 1em 1em .6em 1em;
+    width: 100%;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background-color: var(--primary-text-color);
+        z-index: -1;
+        transition: .5s;
+    }
+
+    &:hover::before {
+        width: 100%;
+    }
+
+    &:hover {
+        color: var(--secondary-text-color);
+    }
+}
