@@ -1,9 +1,10 @@
 /* Mobiele menu */
-.header-mobile {
-    @media screen and (min-width: 920px) {
+@media screen and (min-width: 920px) {
+    .header-mobile {
         display: none;
     }
 }
+
 
 .header-mobile .top {
     position: fixed;
@@ -271,7 +272,11 @@ label.popup-btn {
         align-items: center;
     }
 
-    @media screen and (min-width: 920px) {
+
+}
+
+@media screen and (min-width: 920px) {
+    .header-desktop {
         display: flex;
         width: 100%;
         justify-content: space-between;
