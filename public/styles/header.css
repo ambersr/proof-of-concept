@@ -17,6 +17,7 @@
     box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.122),
         0 6px 20px 0 rgba(143, 143, 143, 0.006);
     z-index: 99;
+    transition: .2s ease-in-out;
 
     & .logo img {
         width: 140px;
@@ -393,4 +394,9 @@ label.popup-btn {
     path {
         fill: #fff;
     }
+}
+
+nav.top.hide {
+    top: -100px;
+    transition: .2s ease-in-out;
 }
