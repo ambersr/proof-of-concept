@@ -119,7 +119,7 @@ p {
 /* ---------------------------------- Focus state -------------------------------- */
 
 *:focus-visible {
-    outline: 3px dashed var(--primary-highlight-color);
+    outline: 3px dashed var(--red-highlight-color);
     outline-offset: 4px;
 }
 
@@ -234,7 +234,24 @@ label {
     font-family: var(--font-paragraph);
 }
 
+/* -------------------------------- Skiplink -------------------------------- */
 
+.skiplink {
+    position: absolute;
+    z-index: 99999999;
+    top: -300px;
+    font-weight: 700;
+    color: var(--secondary-text-color);
+    background-color: var(--red-highlight-color);
+    padding: 1em;
+    transition: .2s ease-in-out;
+}
+
+.skiplink:focus {
+    left: 5em;
+    top: 0px;
+    box-shadow: 0 0 0 3px var(--red-highlight-color);
+}
 
 /* ---------------------------------- Knoppen -------------------------------- */
 
