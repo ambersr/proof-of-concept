@@ -129,6 +129,11 @@ app.get("/cases/:slug", async (req, res) => {
   });
 });
 
+// // 404 pagina als je de route niet werkt
+ app.use((req, res) => {
+   res.status(404).render("404.liquid", { })
+ })
+
 // ------------------------ POST routes ------------------------
 
 app.post("/cases/:slug", async (req, res) => {
