@@ -10,6 +10,7 @@
 
 <header class="cases-detail-banner">
     <img class="banner" src="{{ case.yoast_head_json.og_image[0].url }}" alt="" width="400" height="400">
+    <img class="banner" src="{{ case.yoast_head_json.og_image[0].url }}" alt="{{ case.title.rendered }}" width="400" height="400">
 
     <section class="introductie">
         <h1>{{ case.title.rendered }}</h1>
@@ -18,7 +19,7 @@
             <li class="label">
                 {% assign category = case._embedded["wp:term"][0][0] %}
                 {% if category %}
-                    <p>{{ category.name }}</p>
+                <p>{{ category.name }}</p>
                 {% endif %}
             </li>
             <li class="label">
@@ -99,7 +100,8 @@
                     target="_blank" aria-label="Deel op Whatsapp">{% render 'public/assets/whatsapp.liquid' %}</a>
             </li>
             <li class="share">
-                <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fparse.com" target="_blank" aria-label="Deel op LinkedIN">{% render 'public/assets/linkedin-in.liquid' %}</a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fparse.com" target="_blank"
+                    aria-label="Deel op LinkedIN">{% render 'public/assets/linkedin-in.liquid' %}</a>
             </li>
         </ul>
     </section>
