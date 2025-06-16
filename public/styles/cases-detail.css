@@ -15,7 +15,7 @@
         a {
             display: inline;
             margin-right: .4em;
-             color: var(--third-text-color);
+            color: var(--third-text-color);
         }
     }
 }
@@ -52,6 +52,13 @@
             color: var(--third-text-color);
             font-weight: 300;
         }
+    }
+}
+
+.team-sectie {
+    padding: 1em 0 1em 0;
+    h2 {
+        font-size: 20px;
     }
 }
 
@@ -164,11 +171,12 @@ div[style="width: 61rem; margin: 0 auto;"] {
 
             .second {
                 display: block;
-                margin-top: -.5em;
+                margin-top: -.2em;
             }
 
             a {
                 color: var(--red-highlight-color);
+                font-weight: 700;
             }
         }
     }
@@ -199,6 +207,12 @@ div[style="width: 61rem; margin: 0 auto;"] {
 .contact-formulier {
     position: relative;
     background-color: #e5e5e5;
+
+    .contact-form {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
     .contact-wrapper {
         padding: 0 2em;
@@ -253,12 +267,19 @@ div[style="width: 61rem; margin: 0 auto;"] {
     gap: .5em;
     align-items: baseline;
 
+    .wrapper-input {
+        width: 100%;
+        position: relative;
+        display: flex;
+        gap: .5em;
+        flex-direction: column;
+    }
+
     input {
         width: 100%;
     }
 
     textarea {
-        border: none;
         height: 8em;
         width: 100%;
     }
@@ -323,9 +344,10 @@ div[style="width: 61rem; margin: 0 auto;"] {
 
 /* Media queries */
 @media screen and (min-width: 720px) {
-    .breadcrumbs { 
-         padding: 7em 6em 1em;
+    .breadcrumbs {
+        padding: 7em 6em 1em;
     }
+
     .cases-detail-banner {
         padding: 1em 4em 3em;
 
@@ -347,7 +369,8 @@ div[style="width: 61rem; margin: 0 auto;"] {
                 height: 10em;
             }
 
-            .teamlid, .projectleider {
+            .teamlid,
+            .projectleider {
                 width: 10em;
             }
         }
@@ -424,7 +447,7 @@ div[style="width: 61rem; margin: 0 auto;"] {
 }
 
 .hidden {
-    display: none !important;
+    display: none;
 }
 
 @keyframes spin {
