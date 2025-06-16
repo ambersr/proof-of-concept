@@ -47,7 +47,7 @@ app.get(["/cases", "/cases/page/:pageNumber"], async (req, res) => {
   const page = req.params.pageNumber || 1;
   const perPage = 8;
 
-  const casesResponse = await fetch(`${casesEndpoint}?per_page=${perPage}&page=${page}&_fields=title,slug,yoast_head_json.og_description,yoast_head_json.og_image,acf.logo_white`, {
+  const casesResponse = await fetch(`${casesEndpoint}?per_page=${perPage}&page=${page}&${embedFilter}&_fields=title,slug,yoast_head_json.og_description,yoast_head_json.og_image,acf.logo_white`, {
     headers: {
       'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Safari/605.1.15',
       'Accept': 'application/json',
