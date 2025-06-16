@@ -392,11 +392,6 @@ div[style="width: 61rem; margin: 0 auto;"] {
         flex-direction: row;
         gap: 6em;
 
-        .banner {
-            height: 32em;
-            width: 40%;
-        }
-
         .introductie {
             width: 50%;
 
@@ -411,6 +406,11 @@ div[style="width: 61rem; margin: 0 auto;"] {
     .case-detail-content {
         padding: 0em 25em 3em;
     }
+}
+
+.cases-detail-banner .banner {
+    height: 32em;
+    width: 40%;
 }
 
 .loading {
