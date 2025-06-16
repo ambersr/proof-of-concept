@@ -9,7 +9,6 @@
             animation: linear animate-in;
             animation-timeline: view();
             animation-range: entry 0% entry 100%;
-            /* start animatie wanneer 20% zichtbaar is */
         }
     }
 }
