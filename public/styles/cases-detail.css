@@ -423,15 +423,6 @@ div[style="width: 61rem; margin: 0 auto;"] {
     width: 100%;
     display: none;
 
-    img {
-        display: flex;
-        align-self: center;
-        width: 5em;
-        height: 5em;
-        margin-bottom: 1.5em;
-        animation: spin 1s linear infinite;
-    }
-
     h3 {
         font-weight: 700;
         font-size: 25px;
@@ -440,6 +431,15 @@ div[style="width: 61rem; margin: 0 auto;"] {
     p {
         font-size: 18px;
     }
+}
+
+.loading img {
+    display: flex;
+    align-self: center;
+    width: 5em;
+    height: 5em;
+    margin-bottom: 1.5em;
+    animation: spin 1s linear infinite;
 }
 
 .loading.show {
@@ -473,12 +473,6 @@ div[style="width: 61rem; margin: 0 auto;"] {
     padding: 1.5em;
     width: 100%;
 
-    img {
-        width: 5em;
-        height: 5em;
-        margin-bottom: 1.5em;
-    }
-
     h3 {
         font-weight: 700;
         font-size: 25px;
@@ -487,6 +481,12 @@ div[style="width: 61rem; margin: 0 auto;"] {
     p {
         font-size: 18px;
     }
+}
+
+.succes-state img {
+    width: 5em;
+    height: 5em;
+    margin-bottom: 1.5em;
 }
 
 .navigation-cases {
