@@ -3,47 +3,37 @@
         <img src="/assets/logo-label-vier.png" alt="Logo Label Vier" width="150" height="50">
     </a>
 
-
     <div class="wrapper-menu">
         <nav class="main-menu">
             <ul class="menu-links">
                 <li class="menu-item"><a class="menu-btn" href="/methode">methode</a></li>
                 <li class="menu-item">
-                    <a class="dropdown-btn menu-btn" href="/methode">diensten
-                        <svg width="15" height="16" viewBox="0 0 27 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M25.8398 1.59375C26.1328 1.82812 26.1328 2.29688 25.8398 2.58984L13.5938 14.8359C13.3008 15.1289 12.8906 15.1289 12.5977 14.8359L0.351562 2.58984C0.0585938 2.29688 0.0585938 1.82812 0.351562 1.59375L1.46484 0.421875C1.75781 0.128906 2.22656 0.128906 2.46094 0.421875L13.125 11.0273L23.7305 0.421875C23.9648 0.128906 24.4336 0.128906 24.7266 0.421875L25.8398 1.59375Z"
-                                fill="black" />
-                        </svg>
-                    </a>
+                    <a class="dropdown-btn menu-btn" href="/diensten">diensten{% render
+                        'public/assets/dropdown-icon.liquid' %}</a>
                     <ul class="sub-menu">
-                        <li class="sub-menu-item"><a class="submenu-btn" href="#">persona's</a></li>
-                        <li class="sub-menu-item"><a class="submenu-btn" href="#">klantreizen</a></li>
-                        <li class="sub-menu-item"><a class="submenu-btn" href="#">contentstrategie</a></li>
-                        <li class="sub-menu-item"><a class="submenu-btn" href="#">UX design</a></li>
-                        <li class="sub-menu-item"><a class="submenu-btn" href="#">UI design</a></li>
-                        <li class="sub-menu-item"><a class="submenu-btn" href="#">ontwikkeling</a></li>
-                        <li class="sub-menu-item"><a class="submenu-btn" href="#">hosting & supports</a></li>
+                        <li class="sub-menu-item"><a class="submenu-btn" href="/diensten/personas">persona's</a></li>
+                        <li class="sub-menu-item"><a class="submenu-btn" href="/diensten/personas">klantreizen</a></li>
+                        <li class="sub-menu-item"><a class="submenu-btn"
+                                href="/diensten/contentstrategie">contentstrategie</a></li>
+                        <li class="sub-menu-item"><a class="submenu-btn" href="/diensten/ux-designs">UX design</a></li>
+                        <li class="sub-menu-item"><a class="submenu-btn" href="/diensten/ui-designs">UI design</a></li>
+                        <li class="sub-menu-item"><a class="submenu-btn" href="/diensten/ontwikkeling">ontwikkeling</a>
+                        </li>
+                        <li class="sub-menu-item"><a class="submenu-btn" href="/diensten/hosting&supports">hosting &
+                                supports</a></li>
                     </ul>
                 </li>
                 <li class="menu-item">
-                    <a class="dropdown-btn menu-btn" href="/methode">over ons
-                        <svg width="15" height="16" viewBox="0 0 27 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M25.8398 1.59375C26.1328 1.82812 26.1328 2.29688 25.8398 2.58984L13.5938 14.8359C13.3008 15.1289 12.8906 15.1289 12.5977 14.8359L0.351562 2.58984C0.0585938 2.29688 0.0585938 1.82812 0.351562 1.59375L1.46484 0.421875C1.75781 0.128906 2.22656 0.128906 2.46094 0.421875L13.125 11.0273L23.7305 0.421875C23.9648 0.128906 24.4336 0.128906 24.7266 0.421875L25.8398 1.59375Z"
-                                fill="black" />
-                        </svg>
-                    </a>
+                    <a class="dropdown-btn menu-btn" href="/methode">over ons{% render
+                        'public/assets/dropdown-icon.liquid' %}</a>
                     <ul class="sub-menu">
                         <li class="sub-menu-item"><a class="submenu-btn" href="#">werken bij</a></li>
                     </ul>
                 </li>
-                <li class="menu-item"><a class="menu-btn" href="/cases/page/1">werk</a></li>
+                <li class="menu-item"><a class="menu-btn" href="/cases">werk</a></li>
                 <li class="menu-item"><a class="menu-btn" href="/methode">blog</a></li>
             </ul>
         </nav>
-
-        <img class="search-icon" src="/assets/search-icon-left.svg" alt="" width="20" height="20">
 
         <a class="contact-btn blue-btn" href="/">contact</a>
     </div>
@@ -52,7 +42,7 @@
 <header class="header-mobile">
 
     <input class="popup-btn" type="checkbox" id="hamburger-menu" />
-    <label class="popup-btn" for="hamburger-menu"><img src="/assets/open-menu-icon.svg" alt=""></label>
+    <label class="popup-btn" for="hamburger-menu"><img src="/assets/open-menu-icon.svg" alt="">menu</label>
 
     <nav class="top">
         <a class="logo" href="/">
@@ -62,21 +52,17 @@
 
     <nav class="bottom">
         <form class="search-nav" action="/">
+        <label for="search-input">Voer hier een zoekterm in:</label>
             <input type="text" placeholder="Zoeken.." name="search">
-            <button type="submit"><img src="/assets/search-icon.svg" alt="" width="20" height="20"></button>
+            <button type="submit"><img src="/assets/search-icon.svg" alt="" width="20" height="20"><span
+                    class="sreenreader-label">Zoekem</span></button>
         </form>
 
         <ul class="menu-links">
             <li class="menu-item"><a class="menu-btn" href="/methode">methode</a></li>
             <li class="menu-item">
-                <input type="checkbox" id="dropdown" /><span class="dropdown-link dropdown-btn">
-                    diensten
-                    <svg width="26" height="16" viewBox="0 0 27 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M25.8398 1.59375C26.1328 1.82812 26.1328 2.29688 25.8398 2.58984L13.5938 14.8359C13.3008 15.1289 12.8906 15.1289 12.5977 14.8359L0.351562 2.58984C0.0585938 2.29688 0.0585938 1.82812 0.351562 1.59375L1.46484 0.421875C1.75781 0.128906 2.22656 0.128906 2.46094 0.421875L13.125 11.0273L23.7305 0.421875C23.9648 0.128906 24.4336 0.128906 24.7266 0.421875L25.8398 1.59375Z"
-                            fill="black" />
-                    </svg>
-                </span>
+                <input type="checkbox" id="dropdown-services" class="dropdown" /><label for="dropdown-services" class="dropdown-link dropdown-btn">diensten{% render
+                    'public/assets/dropdown-icon.liquid' %}</label>
                 <ul class="sub-menu">
                     <li class="sub-menu-item"><a href="#">persona's</a></li>
                     <li class="sub-menu-item"><a href="#">klantreizen</a></li>
@@ -88,19 +74,13 @@
                 </ul>
             </li>
             <li class="menu-item">
-                <input type="checkbox" id="dropdown" /><span class="dropdown-link dropdown-btn">
-                    over ons
-                    <svg width="26" height="16" viewBox="0 0 27 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M25.8398 1.59375C26.1328 1.82812 26.1328 2.29688 25.8398 2.58984L13.5938 14.8359C13.3008 15.1289 12.8906 15.1289 12.5977 14.8359L0.351562 2.58984C0.0585938 2.29688 0.0585938 1.82812 0.351562 1.59375L1.46484 0.421875C1.75781 0.128906 2.22656 0.128906 2.46094 0.421875L13.125 11.0273L23.7305 0.421875C23.9648 0.128906 24.4336 0.128906 24.7266 0.421875L25.8398 1.59375Z"
-                            fill="black" />
-                    </svg>
-                </span>
+                <input type="checkbox" id="dropdown-about" class="dropdown" /><label for="dropdown-about" class="dropdown-link dropdown-btn">over ons{% render
+                    'public/assets/dropdown-icon.liquid' %}</label>
                 <ul class="sub-menu">
                     <li class="sub-menu-item"><a href="#">werken bij</a></li>
                 </ul>
             </li>
-            <li class="menu-item"><a class="menu-btn" href="/cases/page/1">werk</a></li>
+            <li class="menu-item"><a class="menu-btn" href="/cases">werk</a></li>
             <li class="menu-item"><a class="menu-btn" href="/methode">blog</a></li>
             <li class="menu-item"><a class="menu-btn" href="/contact">contact</a></li>
         </ul>

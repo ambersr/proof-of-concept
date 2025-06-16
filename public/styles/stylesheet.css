@@ -350,13 +350,13 @@ a {
 
 /* Knop menu */
 .menu-btn {
-    background-color: var(--primary-background-color);
+    /* background-color: var(--primary-background-color); */
     color: var(--primary-text-color);
     font-weight: 600;
     transition: .5s;
     position: relative;
     z-index: 1;
-    overflow: hidden;
+    /* overflow: hidden; */
     display: inline-block;
     padding: .6em 1.2em .6em 1.2em;
     width: 100%;
@@ -373,18 +373,20 @@ a {
         transition: .5s;
     }
 
-    &:hover::before {
+   &:hover::before,
+   &:focus::before {
         width: 100%;
     }
 
-    &:hover {
+    &:hover,
+    &:focus {
         color: var(--secondary-text-color);
     }
 }
 
 /* Submenu menu */
 .submenu-btn {
-    background-color: var(--primary-background-color);
+    /* background-color: var(--primary-background-color); */
     color: var(--primary-text-color);
     font-weight: 600;
     transition: .5s;
