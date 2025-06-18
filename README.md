@@ -1,9 +1,8 @@
 ## Project Label Vier
 
-De afgelopen 3 weken heb ik gewerkt aan het project Label Vier, een frontendbedrijf die zich bezig houdt met het interface en het ontwikkelen van online platforms. Tijdens dit project heb ik de Cases overzichtspagina en de case detailpagina opnieuw ontworpen en ontwikkeld. Het doel van dit project is 
+De afgelopen 3 weken heb ik gewerkt aan het project Label Vier, een frontendbedrijf die zich bezig houdt met de interface en het ontwikkelen van online platforms. Tijdens dit project heb ik de Cases overzichtspagina en de case detailpagina opnieuw ontworpen en ontwikkeld met als doel de huidige stijl te behouden.
 
-# Titel
-<!-- Geef je project een titel en schrijf in één zin wat het is -->
+### Wie is Label Vier
 
 ## Inhoudsopgave
 
