@@ -107,7 +107,27 @@ Voor dit project is gebruik gemaakt van Node.js en Express om een webserver te b
 - **LiquidJS** – templates renderen  
 - **WordPress API** – content ophalen  
 - **Directus API** – formulierdata opslaan  
-- **Fetch API** – data ophalen in routes  
+- **Fetch API** – data ophalen in routes
+
+### Code Conventies
+#### HTML / Liquid
+- Gebruik semantische HTML: <section>, <article>, <main>
+- 2 spaties voor inspringing (geen tabs)
+- kebab-case voor classnamen: section-title
+- Voeg alt-teksten toe aan afbeeldingen (wanneer dit voor toegankelijkheid nodig is)
+- Structuur volgens sitemap (routes & includes)
+
+#### CSS
+- kebab-case voor classnamen: .form-field
+- Naamgeving in het engels
+- Schrijf mobile-first met zo mogelijk geneste media queries
+- Gebruik --custom-properties waar mogelijk
+- Houd CSS DRY (vermijd dubbele regels)
+
+#### JavaScript
+- camelCase voor variabelen/functies: handleSubmit
+- Gebruik const/let
+- Voeg comments of JSDoc toe bij functies
 
 ## Installatie
 
