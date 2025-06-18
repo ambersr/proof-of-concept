@@ -1,7 +1,7 @@
 @supports (animation-timeline: scroll()) {
     .progress {
         position: fixed;
-        top: 5em;
+        top: 4em;
         left: 50%;
         transform: translate(-50%, -50%);
         display: flex;
@@ -11,6 +11,7 @@
         overflow: hidden;
         border-radius: 0.5rem;
         z-index: 999999999;
+        transition: .2s ease-in-out;
     }
 
     .progress::before {
@@ -21,6 +22,21 @@
         transform-origin: 0 50%;
         animation: scaleProgress auto linear;
         animation-timeline: scroll(root);
+    }
+
+    .progress.hide {
+        top: -100px;
+        transition: .2s ease-in-out;
+    }
+
+    @media screen and (min-width: 920px) {
+        .progress {
+            top: 5em;
+        }
+
+        .progress.hide {
+            top: 5em;
+        }
     }
 }
 

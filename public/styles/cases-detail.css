@@ -406,11 +406,11 @@ div[style="width: 61rem; margin: 0 auto;"] {
     .case-detail-content {
         padding: 0em 25em 3em;
     }
-}
 
-.cases-detail-banner .banner {
-    height: 32em;
-    width: 40%;
+    .cases-detail-banner .banner {
+        height: 32em;
+        width: 40%;
+    }
 }
 
 .loading {
@@ -434,13 +434,13 @@ div[style="width: 61rem; margin: 0 auto;"] {
 }
 
 .loading img {
-    display: flex;
-    align-self: center;
-    width: 5em;
-    height: 5em;
-    margin-bottom: 1.5em;
-    animation: spin 1s linear infinite;
-}
+        display: flex;
+        align-self: center;
+        width: 5em;
+        height: 5em;
+        margin-bottom: 1.5em;
+        animation: spin 1s linear infinite;
+    }
 
 .loading.show {
     display: flex;
