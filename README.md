@@ -25,6 +25,8 @@ Ontwikkel een verbeterde versie van de cases overzichtspagina en de detailpagina
 ### Cases overzichtpagina  
 De cases overzichtpagina toont een lijst met projectcases en teamleden, waarbij belangrijke functies zoals ophalen, tonen en filteren centraal staan. Deze pagina is opgebouwd volgens de vier lagen van de Hierarchy of User Needs.
 
+[Livelink](https://proof-of-concept-ip1p.onrender.com/cases) naar de case overzichtspagina.
+
 ### Paginatie  
 
 #### 1 & 2 – Functional & Reliable  
@@ -35,6 +37,8 @@ De cases overzichtpagina toont een lijst met projectcases en teamleden, waarbij 
 #### 3 – Usable  
 - De paginatie is responsive en volgt het mobile-first principe, zodat navigatie op alle apparaten soepel verloopt.  
 - De paginatieknoppen zijn goed bereikbaar via het toetsenbord (tab-navigatie), wat de toegankelijkheid verbetert.
+
+https://github.com/user-attachments/assets/bddb86a6-0498-4500-9ac9-4a24dbe4430d
 
 ### Case Cards  
 
@@ -50,11 +54,15 @@ De cases overzichtpagina toont een lijst met projectcases en teamleden, waarbij 
 - Bij het hoveren over een project verschijnt een stijlvolle animatie over de titel en knop, wat zorgt voor een prettige interactieve ervaring.  
 - Daarnaast is er een scroll-driven animatie geïmplementeerd: wanneer je door de projecten scrollt, verschijnen ze één voor één met een fade-in effect.
 
+https://github.com/user-attachments/assets/abcaad01-88c4-40f4-994c-d03f01e545aa
+
 ---
 
 ### Cases Detailpagina
 
 De detailpagina toont informatie over een specifieke case en bevat een contactformulier dat functioneel, bruikbaar én plezierig is volgens de vier lagen van de Hierarchy of User Needs.
+
+[Livelink](https://proof-of-concept-ip1p.onrender.com/cases/munji-zo-bouwden-we-een-webshop-voor-dit-bordspel) naar de case detailpagina.
 
 ### Contactformulier
 
@@ -70,6 +78,8 @@ De detailpagina toont informatie over een specifieke case en bevat een contactfo
 #### 4 – Pleasurable  
 - De pagina wordt tijdens het verzenden niet volledig gerefresht. Dit wordt voorkomen met client-side JavaScript (`event.preventDefault()`), wat zorgt voor een vloeiendere ervaring.
 - Tijdens het verzenden verschijnt een loading state, waardoor de wachttijd voor de gebruiker minder lang aanvoelt (perceived performance).
+
+https://github.com/user-attachments/assets/1867c08e-c74d-496c-9ad2-2e89ddc034d5
 
 ## Kenmerken
 
