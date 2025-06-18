@@ -3,6 +3,7 @@
 De afgelopen 3 weken heb ik gewerkt aan het project Label Vier, een frontendbedrijf die zich bezig houdt met de interface en het ontwikkelen van online platforms. Tijdens dit project heb ik de Cases overzichtspagina en de case detailpagina opnieuw ontworpen en ontwikkeld met als doel de huidige stijl te behouden.
 
 ### Wie is Label Vier
+Label Vier is een creatief bureau gevestigd in Amersfoort. Zij richten zich op branding, webdesign en ontwikkeling, en werkt voor zowel start-up-bedrijven als gevestigde bedrijven. Label Vier werkt volgens een gestructureerde werkwijze die bestaat uit 4 fases: onderzoeken, ontwerpen, ontwikkelen en optimaliseren.![image](https://github.com/user-attachments/assets/d47e1535-d925-441e-9a65-77ab248c277c)
 
 ## Inhoudsopgave
 
