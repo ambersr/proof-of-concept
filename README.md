@@ -74,12 +74,13 @@ De detailpagina toont informatie over een specifieke case en bevat een contactfo
 #### 3 – Usable  
 - Het formulier werkt op alle schermgroottes dankzij een mobile-first aanpak met `@media queries`.
 - Alle velden zijn duidelijk gelabeld en eenvoudig te bedienen, ook met toetsenbord.
+- Er is gebruikgemaakt van `:user-valid` en `:user-invalid` pseudo-classes voor visuele feedback tijdens het invullen, zonder extra JavaScript. Zo ziet de gebruiker direct of een veld correct is ingevuld.
 
 #### 4 – Pleasurable  
 - De pagina wordt tijdens het verzenden niet volledig gerefresht. Dit wordt voorkomen met client-side JavaScript (`event.preventDefault()`), wat zorgt voor een vloeiendere ervaring.
 - Tijdens het verzenden verschijnt een loading state, waardoor de wachttijd voor de gebruiker minder lang aanvoelt (perceived performance).
 
-https://github.com/user-attachments/assets/1867c08e-c74d-496c-9ad2-2e89ddc034d5
+https://github.com/user-attachments/assets/09be0a07-7ea5-43bb-8d8a-be0946251f02
 
 ## Kenmerken
 
