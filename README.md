@@ -144,7 +144,7 @@ Om het project lokaal te gebruiken heb je Node.js nodig. Daarna kun je het proje
 
 ## Bronnen
 - Website [Label Vier](https://labelvier.nl/)
-- Huisstijl document Label Vier
+- Huisstijl [document Label Vier](https://github.com/ambersr/proof-of-concept/blob/main/docs/Huisstijl%20gids%20Label%20Vier_2.pdf)
 
 ## Licentie
 
