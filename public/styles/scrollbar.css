@@ -1,0 +1,33 @@
+.progress {
+    position: fixed;
+    top: 5em;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    height: .3rem;
+    width: 100%;
+    background: lightgray;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    z-index: 999999999;
+}
+
+.progress::before {
+    content: '';
+    background: var(--red-highlight-color);
+    height: 100%;
+    width: 100%;
+    transform-origin: 0 50%;
+    animation: scaleProgress auto linear;
+    animation-timeline: scroll(root);
+}
+
+@keyframes scaleProgress {
+    0% {
+        transform: scaleX(0);
+    }
+
+    100% {
+        transform: scaleX(1);
+    }
+}
