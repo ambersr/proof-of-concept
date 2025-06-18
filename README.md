@@ -143,7 +143,7 @@ Om het project lokaal te gebruiken heb je Node.js nodig. Daarna kun je het proje
    http://localhost:8000
 
 ## Bronnen
-- Website Label Vier
+- Website [Label Vier](https://labelvier.nl/)
 - Huisstijl document Label Vier
 
 ## Licentie
