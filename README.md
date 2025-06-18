@@ -5,6 +5,8 @@ De afgelopen 3 weken heb ik gewerkt aan het project Label Vier, een frontendbedr
 ### Wie is Label Vier
 Label Vier is een creatief bureau gevestigd in Amersfoort. Zij richten zich op branding, webdesign en ontwikkeling, en werkt voor zowel start-up-bedrijven als gevestigde bedrijven. Label Vier werkt volgens een gestructureerde werkwijze die bestaat uit 4 fases: onderzoeken, ontwerpen, ontwikkelen en optimaliseren.
 
+![mockup-label-vier](https://github.com/user-attachments/assets/17dd56ad-464e-4861-a45d-6c4748cc7f0f)
+
 ## Inhoudsopgave
 
   * [Beschrijving](#beschrijving)
