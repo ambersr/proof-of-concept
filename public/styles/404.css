@@ -1,4 +1,4 @@
-.error-sectie {
+.error-section {
     display: flex;
     flex-direction: column-reverse;
 
@@ -39,7 +39,7 @@
 }
 
 @media screen and (min-width: 720px) {
-    .error-sectie {
+    .error-section {
         flex-direction: row;
         height: 100vh;
 

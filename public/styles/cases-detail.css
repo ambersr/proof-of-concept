@@ -182,7 +182,7 @@ div[style="width: 61rem; margin: 0 auto;"] {
     }
 }
 
-.share-sectie {
+.share-section {
     display: flex;
     flex-direction: column;
     gap: 2em;
@@ -204,7 +204,7 @@ div[style="width: 61rem; margin: 0 auto;"] {
     }
 }
 
-.contact-formulier {
+.contact-section {
     position: relative;
     background-color: #e5e5e5;
 
@@ -228,7 +228,7 @@ div[style="width: 61rem; margin: 0 auto;"] {
     }
 }
 
-.contact-formulier::before {
+.contact-section::before {
     background: linear-gradient(-25deg, #e5e5e5 16px, #e5e5e5 16px, #e5e5e5 16px, transparent 0),
         linear-gradient(25deg, #e5e5e5 16px, transparent 0);
     background-position: left top;
@@ -244,7 +244,7 @@ div[style="width: 61rem; margin: 0 auto;"] {
     left: 0;
 }
 
-.contact-formulier::after {
+.contact-section::after {
     background: linear-gradient(-25deg, #e5e5e5 16px, #e5e5e5 16px, #e5e5e5 16px, transparent 0),
         linear-gradient(25deg, #e5e5e5 16px, transparent 0);
     background-position: left top;

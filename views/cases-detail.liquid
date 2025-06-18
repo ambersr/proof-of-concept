@@ -2,7 +2,7 @@
 
 {% for case in cases %}
 
-<ul class="breadcrumbs" id="inhoud">
+<ul class="breadcrumbs" id="content">
     <li><a href="/">Home</a>»</li>
     <li><a href="/cases/page/1">Cases</a>»</li>
     <li><a href="{{ case.slug }}">{{ case.title.rendered }}</a></li>
@@ -66,7 +66,7 @@
     </section>
 </header>
 
-<section class="case-detail-content">
+<section class="case-detail-content hide">
     <p>{{ case.content.rendered }}</p>
 
     {% if case.acf.case_projectleider.user_avatar %}
@@ -84,7 +84,7 @@
     </div>
     {% endif %}
 
-    <section class="share-sectie" id="contact-form" >
+    <section class="share-section" id="contact-form" >
         <h3><span class="text-bold">Deel</span> dit blogbericht via</h3>
         <ul class="share-buttons">
             <li class="share">
@@ -104,7 +104,7 @@
         </ul>
     </section>
 
-    <section class="contact-formulier">
+    <section class="contact-section">
         <div class="contact-wrapper">
             <form class="contact-form" method="POST" action="/cases/{{ cases[0].slug }}"
                 data-enhanced="form-{{ cases[0].slug }}">
@@ -169,7 +169,7 @@
 
 {% endfor %}
 
-{% render 'partials/mogelijkheden.liquid' %}
+{% render 'partials/possibilities.liquid' %}
 
 <div class="scroll-to-top">
     <a class="scroll-btn" href="#">
@@ -178,7 +178,7 @@
     </a>
 </div>
 
-<span class="progress"></span>
+<div class="progress"></div>
 
 <script src="/scripts/form.js"></script>
 <script src="/scripts/menu.js"></script>

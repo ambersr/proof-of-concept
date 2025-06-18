@@ -1,11 +1,11 @@
-let oudeScrollPositie = window.scrollY;
+let oldScrollPosition = window.scrollY;
 
 document.addEventListener('scroll', () => {
-  const huidigeScrollPositie = window.scrollY;
+  const currentScrollPosition = window.scrollY;
   const logoHeader = document.querySelector('nav.top');
-  const progressBar = document.querySelector('.progress');
+  const progressBar = document.querySelector('.progressbar');
 
-  if (oudeScrollPositie > huidigeScrollPositie) {
+  if (oldScrollPosition > currentScrollPosition) {
 
     // wanneer de gebruiker omhoog scrollt laat menu zien
     logoHeader.classList.remove('hide');
@@ -17,6 +17,6 @@ document.addEventListener('scroll', () => {
     progressBar.classList.add('hide');
   }
 
-  // Update de scrollpositie
-  oudeScrollPositie = huidigeScrollPositie;
+  // Update de scrollPosition
+  oldScrollPosition = currentScrollPosition;
 });

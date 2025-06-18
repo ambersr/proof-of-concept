@@ -34,12 +34,3 @@ document.addEventListener('submit', async function (event) {
     form.outerHTML = newState.outerHTML
 })
 }
-
-
-  window.addEventListener("scroll", function () {
-    const scrollTop = window.scrollY;
-    const docHeight = document.body.scrollHeight - window.innerHeight;
-    const scrollPercent = (scrollTop / docHeight) * 100;
-    const progressBar = document.getElementById("scroll-progress-bar");
-    progressBar.style.width = scrollPercent + "%";
-  });
