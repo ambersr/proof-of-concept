@@ -145,3 +145,14 @@
         padding: 1.5em 13em 1.5em;
     }
 }
+
+/* Slide in animatie */
+.slide-up {
+    transform: translateY(50px);
+    transition: transform 0.3s ease-out;
+    margin-bottom: -20px;
+}
+
+.slide-up.visible {
+    transform: translateY(0);
+}
