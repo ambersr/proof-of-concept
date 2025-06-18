@@ -5,6 +5,9 @@ De afgelopen 3 weken heb ik gewerkt aan het project Label Vier, een frontendbedr
 ### Wie is Label Vier
 Label Vier is een creatief bureau gevestigd in Amersfoort. Zij richten zich op branding, webdesign en ontwikkeling, en werkt voor zowel start-up-bedrijven als gevestigde bedrijven. Label Vier werkt volgens een gestructureerde werkwijze die bestaat uit 4 fases: onderzoeken, ontwerpen, ontwikkelen en optimaliseren.
 
+### Klantvraag
+Ontwikkel een verbeterde versie van de cases overzichtspagina en de detailpagina van de Label Vier website met als doel de gebruikservaring, structuur en visuele kwaliteit te optimaliseren ten opzichte van het bestaande ontwerp.
+
 [Live link](www.edu.nl/a3tah) naar het eindresultaat.
 
 ![mockup-label](https://github.com/user-attachments/assets/b43e3db7-95b2-47f8-b313-be3a6df1bd91)
@@ -19,12 +22,54 @@ Label Vier is een creatief bureau gevestigd in Amersfoort. Zij richten zich op b
   * [Licentie](#licentie)
 
 ## Beschrijving
-<!-- Bij Beschrijving staat kort beschreven wat voor project het is en wat je hebt gemaakt -->
-<!-- Voeg een mooie poster visual toe 📸 -->
-<!-- Voeg een link toe naar Github Pages 🌐-->
+### Cases overzichtpagina  
+De cases overzichtpagina toont een lijst met projectcases en teamleden, waarbij belangrijke functies zoals ophalen, tonen en filteren centraal staan. Deze pagina is opgebouwd volgens de vier lagen van de Hierarchy of User Needs.
 
-## Gebruik
-<!-- Bij Gebruik staat de user story, hoe het werkt en wat je er mee kan. -->
+### Paginatie  
+
+#### 1 & 2 – Functional & Reliable  
+- De paginatie wordt server-side gerenderd, waardoor de pagina ook zonder client-side JavaScript en CSS volledig functioneel blijft.  
+- De HTML is semantisch correct opgebouwd, met bijvoorbeeld anchor links `<a>` en een logische heading-structuur. Dit is getest met de W3C Validator.  
+- Met Liquid wordt via `if`- en `else`-condities gecontroleerd welke paginatieknop actief is en welke links getoond worden.
+
+#### 3 – Usable  
+- De paginatie is responsive en volgt het mobile-first principe, zodat navigatie op alle apparaten soepel verloopt.  
+- De paginatieknoppen zijn goed bereikbaar via het toetsenbord (tab-navigatie), wat de toegankelijkheid verbetert.
+
+### Case Cards  
+
+#### 1 & 2 – Functional & Reliable  
+- De projectdata wordt server-side opgehaald, waardoor de inhoud altijd zichtbaar is, ook zonder client-side JavaScript en CSS.  
+- Er is gebruikgemaakt van semantische HTML-structuur, zoals `<section>`, `<ul>` en `<li>` elementen. De data wordt met Liquid templates netjes in de HTML gerenderd.
+
+#### 3 – Usable  
+- De case cards zijn responsive gemaakt met media queries, waarbij de schermbreedtes `min-width: 920px` en `min-width: 1200px` consistent worden toegepast.  
+- Ook hier zijn de knoppen eenvoudig te bedienen met de tab-toets, wat zorgt voor goede toetsenbordnavigatie.
+
+#### 4 – Pleasurable  
+- Bij het hoveren over een project verschijnt een stijlvolle animatie over de titel en knop, wat zorgt voor een prettige interactieve ervaring.  
+- Daarnaast is er een scroll-driven animatie geïmplementeerd: wanneer je door de projecten scrollt, verschijnen ze één voor één met een fade-in effect.
+
+---
+
+### Cases Detailpagina
+
+De detailpagina toont informatie over een specifieke case en bevat een contactformulier dat functioneel, bruikbaar én plezierig is volgens de vier lagen van de Hierarchy of User Needs.
+
+### Contactformulier
+
+#### 1 & 2 – Functional & Reliable  
+- Het contactformulier verstuurt data via een POST-request en slaat dit server-side op in de database.
+- De standaard- en successtatus worden afgehandeld via Liquid templating met `if` en `else` tags.
+- Er is gebruikgemaakt van semantische HTML: bijvoorbeeld een `<form>` met correcte `<label>` en `<input>` elementen voor optimale toegankelijkheid.
+
+#### 3 – Usable  
+- Het formulier werkt op alle schermgroottes dankzij een mobile-first aanpak met `@media queries`.
+- Alle velden zijn duidelijk gelabeld en eenvoudig te bedienen, ook met toetsenbord.
+
+#### 4 – Pleasurable  
+- De pagina wordt tijdens het verzenden niet volledig gerefresht. Dit wordt voorkomen met client-side JavaScript (`event.preventDefault()`), wat zorgt voor een vloeiendere ervaring.
+- Tijdens het verzenden verschijnt een loading state, waardoor de wachttijd voor de gebruiker minder lang aanvoelt (perceived performance).
 
 ## Kenmerken
 
