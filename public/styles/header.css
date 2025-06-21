@@ -331,7 +331,6 @@ label.popup-btn {
     width: 15em;
     z-index: 0;
     height: 0;
-    overflow: hidden;
 }
 
 .header-desktop .dropdown-btn {
