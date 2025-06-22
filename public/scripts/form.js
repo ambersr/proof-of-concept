@@ -3,21 +3,21 @@ if ('fetch' in window && 'DOMParser' in window) {
 document.addEventListener('submit', async function (event) {
     const form = event.target
 
+    // als het formulier het data-enhanced=""
     if (!form.hasAttribute('data-enhanced')) {
         return
     }
 
+    // voorkomt de refresh tijdens het submitten
     event.preventDefault()
 
+    // als het formulier verzonden wordt laat dan de loading 
     const contactForm = form.querySelector('.loading');
-        if (contactForm) {
-            contactForm.classList.add('show');
-        }
-        
+    contactForm.classList.add('show');
+    
+    // als het formulier verzonden wordt hide dan alle formuliervelden
     const contentForm = form.querySelector('.form-content');
-        if (contentForm) {
-            contentForm.classList.add('hidden');
-        }
+    contentForm.classList.add('hidden');
 
     const response = await fetch(form.action, {
         method: form.method,
