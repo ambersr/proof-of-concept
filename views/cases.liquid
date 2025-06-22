@@ -9,27 +9,26 @@
 </section>
 
 <div class="pagination">
-  {% if totalPages > 1 %}
 
+    {% comment %} Als de huidige pagina groter is dan 1 {% endcomment %}
     {% if currentPage > 1 %}
       <a class="red-btn" href="{% if currentPage == 2 %}/cases{% else %}/cases/page/{{ currentPage | minus: 1 }}{% endif %}">← Vorige</a>
     {% endif %}
 
+    {% comment %} Voor alle pagina's vanaf 1  {% endcomment %}
     {% for page in (1..totalPages) %}
       {% if page == currentPage %}
         <span class="blue-btn active">{{ page }}</span>
-      {% elsif page == 1 %}
-        <a class="red-btn" href="/cases">{{ page }}</a>
       {% else %}
-        <a class="red-btn" href="/cases/page/{{ page }}">{{ page }}</a>
+        <a class="red-btn" href="{% if page == 1 %}/cases{% else %}/cases/page/{{ page }}{% endif %}">{{ page }}</a>
       {% endif %}
     {% endfor %}
 
+    {% comment %} Als de huidige pagina kleiner is dan de totaal aantal pagina's {% endcomment %}
     {% if currentPage < totalPages %}
       <a class="red-btn" href="/cases/page/{{ currentPage | plus: 1 }}">Volgende →</a>
     {% endif %}
 
-  {% endif %}
 </div>
 
 {% render 'partials/possibilities.liquid' %}
