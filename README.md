@@ -8,7 +8,7 @@ Label Vier is een creatief bureau gevestigd in Amersfoort. Zij richten zich op b
 ### Klantvraag
 Ontwikkel een verbeterde versie van de cases overzichtspagina en de detailpagina van de Label Vier website met als doel de gebruikservaring, structuur en visuele kwaliteit te optimaliseren ten opzichte van het bestaande ontwerp.
 
-[Live link](www.edu.nl/a3tah) naar het eindresultaat.
+[Live link](https://edu.nl/a3tah) naar het eindresultaat.
 
 ![mockup-label](https://github.com/user-attachments/assets/b43e3db7-95b2-47f8-b313-be3a6df1bd91)
 
